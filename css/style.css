@@ -142,7 +142,7 @@ ul{ list-style:none; padding:0; margin:0; }
   z-index: 1000;
   height: 124px;
   display:flex; align-items:center;
-  background: var(--ink-black);
+  background: transparent;
   transition: background-color .45s var(--ease), height .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
   border-bottom: 1px solid transparent;
 }
@@ -264,13 +264,17 @@ ul{ list-style:none; padding:0; margin:0; }
    ============================================================ */
 .hero{
   position: relative;
-  height: 820px;
-  max-height: 100vh;
+  margin-top: -124px;
+  height: calc(820px + 124px);
+  max-height: calc(100vh + 124px);
   background: var(--ink-black);
   overflow: hidden;
 }
+@media (max-width: 900px){
+  .hero{ margin-top: -88px; }
+}
 @media (max-width: 860px){
-  .hero{ height: 60vh; }
+  .hero{ height: calc(60vh + 88px); }
 }
 .hero__media{
   position: absolute;

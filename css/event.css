@@ -63,7 +63,8 @@
 /* ---------- Event hero ---------- */
 .event-hero{
   position: relative;
-  min-height: 100vh;
+  margin-top: -124px;
+  min-height: calc(100vh + 124px);
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -146,7 +147,7 @@
 }
 
 @media (max-width: 700px){
-  .event-hero{ align-items:center; padding-top: 96px; min-height: 92vh; }
+  .event-hero{ align-items:center; padding-top: 96px; min-height: calc(92vh + 88px); margin-top: -88px; }
   .event-hero__content{ padding-bottom: 48px; }
   .event-hero__actions{ flex-direction:column; align-items:stretch; }
   .event-hero__actions .btn{ justify-content:center; }
