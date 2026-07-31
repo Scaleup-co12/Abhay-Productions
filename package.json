@@ -1,0 +1,10 @@
+{
+  "name": "abhay-productions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Abhay Productions — static marketing site",
+  "scripts": {
+    "dev": "npx --yes serve -l 5173 .",
+    "start": "npm run dev"
+  }
+}
