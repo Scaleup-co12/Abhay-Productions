@@ -130,6 +130,19 @@
     stats.forEach(function (el) { statsObserver.observe(el); });
   }
 
+  /* ---------- Poster fill: blurred backdrop for letterboxed cards ----------
+     .card__media uses object-fit: contain so posters never get cropped; any
+     poster narrower/shorter than the A4 card shape leaves empty space, which
+     this fills with a blurred, scaled-up copy of the same poster instead of
+     plain background color. */
+  Array.prototype.slice.call(document.querySelectorAll('.card__media img')).forEach(function (img) {
+    function setFill() {
+      img.parentElement.style.setProperty('--fill-bg', 'url("' + img.currentSrc + '")');
+    }
+    if (img.complete && img.currentSrc) setFill();
+    else img.addEventListener('load', setFill);
+  });
+
   /* ---------- Carousels (drag + arrow scroll + autoplay) ---------- */
   function initCarousel(wrap) {
     var track = wrap.querySelector('.carousel__track');
@@ -137,28 +150,9 @@
     var nextBtn = wrap.querySelector('.carousel__arrow--next');
     if (!track) return;
 
-    /* Clone the slide set once so autoplay can scroll forward forever
-       with no visible seam: past the end of the originals, the clones
-       are pixel-identical, and we silently rewind by one set-width
-       right after the browser settles the scroll position. */
-    var originalCount = track.children.length;
-    var originalSlides = Array.prototype.slice.call(track.children);
-    originalSlides.forEach(function (child) {
-      var clone = child.cloneNode(true);
-      clone.setAttribute('aria-hidden', 'true');
-      Array.prototype.slice.call(clone.querySelectorAll('a, button')).forEach(function (el) {
-        el.setAttribute('tabindex', '-1');
-      });
-      track.appendChild(clone);
-    });
-
-    var setWidth = 0;
-    function measureSetWidth() {
-      var firstClone = track.children[originalCount];
-      setWidth = firstClone ? firstClone.offsetLeft - track.children[0].offsetLeft : 0;
-    }
-    measureSetWidth();
-
+    /* Both the Events carousel and the Projects coverflow are fixed-end
+       strips: arrows and autoplay stop at the last real card instead of
+       looping back to the start. */
     function step() {
       var item = track.firstElementChild;
       if (!item) return 320;
@@ -167,34 +161,30 @@
       return item.getBoundingClientRect().width + gap;
     }
 
-    function wrapIfPastSet() {
-      if (setWidth > 0 && track.scrollLeft >= setWidth - 2) {
-        track.scrollLeft -= setWidth;
-      }
+    function atEnd() {
+      return track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
     }
-    var wrapTimer;
-    track.addEventListener('scroll', function () {
-      clearTimeout(wrapTimer);
-      wrapTimer = setTimeout(wrapIfPastSet, 120);
-    }, { passive: true });
 
     if (prevBtn) prevBtn.addEventListener('click', function () {
       registerInteraction();
       track.scrollBy({ left: -step(), behavior: 'smooth' });
     });
     if (nextBtn) nextBtn.addEventListener('click', function () {
+      if (atEnd()) return;
       registerInteraction();
       track.scrollBy({ left: step(), behavior: 'smooth' });
     });
 
     function updateArrowState() {
       if (prevBtn) prevBtn.style.opacity = track.scrollLeft <= 4 ? '.4' : '1';
+      if (nextBtn) {
+        var stopped = atEnd();
+        nextBtn.style.opacity = stopped ? '.4' : '1';
+        nextBtn.style.pointerEvents = stopped ? 'none' : '';
+      }
     }
     track.addEventListener('scroll', updateArrowState, { passive: true });
-    window.addEventListener('resize', function () {
-      measureSetWidth();
-      updateArrowState();
-    });
+    window.addEventListener('resize', updateArrowState);
     updateArrowState();
 
     /* Drag-to-scroll for desktop mouse users */
@@ -232,6 +222,7 @@
       if (reduceMotion || autoplayTimer || !inView || userPaused) return;
       autoplayTimer = setInterval(function () {
         if (document.hidden) return;
+        if (atEnd()) { stopAutoplay(); return; }
         track.scrollBy({ left: step(), behavior: 'smooth' });
       }, AUTOPLAY_DELAY);
     }

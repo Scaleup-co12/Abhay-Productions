@@ -1,10 +1,12 @@
 /* ============================================================
-   Event page renderer — reads window.EVENT_DATA (js/event-data.js)
-   and populates the section containers in event.html, then wires
-   up the lightbox and video modal. Runs inline (no DOMContentLoaded
-   wrapper needed: this script tag sits after the containers in the
-   document, so they already exist) and BEFORE js/main.js, so the
-   reveal / stat-counter observers in main.js see the final markup.
+   Event page renderer — shared by every page under /events/. Each
+   page loads its own js/events-data/<slug>.js (setting
+   window.EVENT_DATA) before this script, which then populates the
+   section containers and wires up the lightbox and video modal.
+   Runs inline (no DOMContentLoaded wrapper needed: this script tag
+   sits after the containers in the document, so they already exist)
+   and BEFORE js/main.js, so the reveal / stat-counter observers in
+   main.js see the final markup.
    ============================================================ */
 (function () {
   'use strict';
@@ -13,6 +15,15 @@
   if (!DATA) return;
 
   var PLAY_ICON = '<svg viewBox="0 0 24 24" width="20" height="20"><path d="M8 5l12 7-12 7z" fill="currentColor"/></svg>';
+  var PLACEHOLDER_ICON = '<svg viewBox="0 0 24 24" width="30" height="30"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="8.5" cy="10" r="1.6" fill="currentColor"/><path d="M4 16l4.5-4.5 3 3 3.5-4 5 5.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function placeholderMedia(label) {
+    return '<div class="media-placeholder"><span class="media-placeholder__icon">' + PLACEHOLDER_ICON + '</span><span class="media-placeholder__label">' + esc(label || 'Coming Soon') + '</span></div>';
+  }
+  function hideSection(id) {
+    var el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  }
 
   var ICONS = {
     circle: '<circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" fill="currentColor"/>',
@@ -51,15 +62,19 @@
 
     var mediaEl = document.getElementById('heroMedia');
     if (mediaEl) {
-      mediaEl.innerHTML = h.media.type === 'video'
-        ? '<video autoplay muted loop playsinline' + (h.media.poster ? ' poster="' + esc(h.media.poster) + '"' : '') + '><source src="' + esc(h.media.src) + '" type="video/mp4"></video>'
-        : '<img src="' + esc(h.media.src) + '" alt="">';
+      mediaEl.innerHTML = h.media.placeholder
+        ? placeholderMedia('Cover Image Coming Soon')
+        : (h.media.type === 'video'
+          ? '<video autoplay muted loop playsinline' + (h.media.poster ? ' poster="' + esc(h.media.poster) + '"' : '') + '><source src="' + esc(h.media.src) + '" type="video/mp4"></video>'
+          : '<img src="' + esc(h.media.src) + '" alt="">');
+      var heroSection = document.getElementById('event-hero');
+      if (heroSection) heroSection.classList.toggle('has-placeholder-media', !!h.media.placeholder);
     }
 
     setText('heroBadge', h.badge);
     setText('heroTitle', h.name);
     setText('heroTagline', h.tagline);
-    setText('heroMeta', h.date + ' · ' + h.location);
+    setText('heroMeta', h.location ? (h.date + ' · ' + h.location) : h.date);
   }
 
   function setText(id, text) {
@@ -70,9 +85,17 @@
   /* ---------- 2. Highlights ---------- */
   function renderHighlights() {
     var grid = document.getElementById('highlightsGrid');
-    if (!grid || !DATA.highlights) return;
+    if (!grid) return;
+    if (!DATA.highlights || !DATA.highlights.length) { hideSection('highlights'); return; }
 
     grid.innerHTML = DATA.highlights.map(function (item, i) {
+      if (item.placeholder) {
+        return (
+          '<article class="highlight-card reveal" data-index="' + i + '" data-type="placeholder">' +
+            placeholderMedia(item.title) +
+          '</article>'
+        );
+      }
       var play = item.type === 'video'
         ? '<button class="highlight-card__play" aria-label="Play video">' + PLAY_ICON + '</button>'
         : '';
@@ -90,8 +113,9 @@
       card.addEventListener('click', function () {
         var i = parseInt(card.getAttribute('data-index'), 10);
         var item = DATA.highlights[i];
+        if (item.placeholder) return;
         if (item.type === 'video') {
-          openVideoModal(item.video, item.title);
+          openVideoModal(item);
         } else {
           openLightbox([{ image: item.image, alt: item.title }], 0);
         }
@@ -106,21 +130,26 @@
 
     var featuredEl = document.getElementById('videoFeatured');
     if (featuredEl && v.featured) {
-      featuredEl.innerHTML =
-        '<img src="' + esc(v.featured.poster) + '" alt="' + esc(v.featured.title) + '">' +
-        '<div class="media-card__scrim"></div>' +
-        '<button class="media-card__play" aria-label="Play ' + esc(v.featured.title) + '">' + PLAY_ICON + '</button>' +
-        '<div class="media-card__caption">' +
-          '<p class="media-card__title">' + esc(v.featured.title) + '</p>' +
-          '<span class="media-card__tag">' + esc(v.featured.meta) + '</span>' +
-        '</div>';
-      featuredEl.addEventListener('click', function () {
-        openVideoModal(v.featured.video, v.featured.title);
-      });
+      if (v.featured.placeholder) {
+        featuredEl.innerHTML = placeholderMedia(v.featured.title || 'Video Coming Soon');
+      } else {
+        featuredEl.innerHTML =
+          '<img src="' + esc(v.featured.poster) + '" alt="' + esc(v.featured.title) + '">' +
+          '<div class="media-card__scrim"></div>' +
+          '<button class="media-card__play" aria-label="Play ' + esc(v.featured.title) + '">' + PLAY_ICON + '</button>' +
+          '<div class="media-card__caption">' +
+            '<p class="media-card__title">' + esc(v.featured.title) + '</p>' +
+            '<span class="media-card__tag">' + esc(v.featured.meta) + '</span>' +
+          '</div>';
+        featuredEl.addEventListener('click', function () {
+          openVideoModal(v.featured);
+        });
+      }
     }
 
     var thumbsEl = document.getElementById('videoThumbs');
-    if (thumbsEl && v.thumbs) {
+    if (thumbsEl && (!v.thumbs || !v.thumbs.length)) thumbsEl.style.display = 'none';
+    if (thumbsEl && v.thumbs && v.thumbs.length) {
       thumbsEl.innerHTML = v.thumbs.map(function (item, i) {
         return (
           '<article class="media-card" data-index="' + i + '">' +
@@ -136,7 +165,7 @@
         card.addEventListener('click', function () {
           var i = parseInt(card.getAttribute('data-index'), 10);
           var item = v.thumbs[i];
-          openVideoModal(item.video, item.title);
+          openVideoModal(item);
         });
       });
     }
@@ -148,6 +177,13 @@
     if (!grid || !DATA.gallery) return;
 
     grid.innerHTML = DATA.gallery.map(function (item, i) {
+      if (item.placeholder) {
+        return (
+          '<figure class="masonry-gallery__item masonry-gallery__item--placeholder" data-index="' + i + '">' +
+            placeholderMedia(item.alt || 'Photo Coming Soon') +
+          '</figure>'
+        );
+      }
       return (
         '<figure class="masonry-gallery__item reveal" data-index="' + i + '">' +
           '<img src="' + esc(item.image) + '" alt="' + esc(item.alt) + '" loading="lazy">' +
@@ -157,21 +193,25 @@
     }).join('');
 
     Array.prototype.slice.call(grid.querySelectorAll('.masonry-gallery__item')).forEach(function (fig) {
+      if (fig.classList.contains('masonry-gallery__item--placeholder')) return;
       fig.addEventListener('click', function () {
         openLightbox(DATA.gallery, parseInt(fig.getAttribute('data-index'), 10));
       });
     });
 
     var viewAllBtn = document.getElementById('galleryViewAllBtn');
+    var hasRealPhotos = DATA.gallery.some(function (item) { return !item.placeholder; });
     if (viewAllBtn) {
-      viewAllBtn.addEventListener('click', function () { openLightbox(DATA.gallery, 0); });
+      if (!hasRealPhotos) viewAllBtn.style.display = 'none';
+      else viewAllBtn.addEventListener('click', function () { openLightbox(DATA.gallery, 0); });
     }
   }
 
   /* ---------- 5. Stats ---------- */
   function renderStats() {
     var grid = document.getElementById('statsGrid');
-    if (!grid || !DATA.stats) return;
+    if (!grid) return;
+    if (!DATA.stats || !DATA.stats.length) { hideSection('stats'); return; }
 
     grid.innerHTML = DATA.stats.map(function (s) {
       var key = String(s.label).toLowerCase();
@@ -189,7 +229,8 @@
   /* ---------- 6. Sponsors ---------- */
   function renderSponsors() {
     var track = document.getElementById('sponsorsTrack');
-    if (!track || !DATA.sponsors) return;
+    if (!track) return;
+    if (!DATA.sponsors || !DATA.sponsors.length) { hideSection('sponsors'); return; }
 
     var tiles = DATA.sponsors.map(function (s) {
       var icon = ICONS[s.icon] || ICONS.circle;
@@ -213,9 +254,11 @@
 
     var mediaEl = document.getElementById('closingMedia');
     if (mediaEl) {
-      mediaEl.innerHTML = c.media.type === 'video'
-        ? '<video autoplay muted loop playsinline><source src="' + esc(c.media.src) + '" type="video/mp4"></video>'
-        : '<img src="' + esc(c.media.src) + '" alt="">';
+      mediaEl.innerHTML = c.media.placeholder
+        ? placeholderMedia('Coming Soon')
+        : (c.media.type === 'video'
+          ? '<video autoplay muted loop playsinline><source src="' + esc(c.media.src) + '" type="video/mp4"></video>'
+          : '<img src="' + esc(c.media.src) + '" alt="">');
     }
 
     var statementEl = document.getElementById('closingStatement');
@@ -283,7 +326,7 @@
     document.body.style.overflow = '';
   }
 
-  /* ---------- Video modal ---------- */
+  /* ---------- Video modal (local <video> or YouTube embed) ---------- */
   var videoModal, videoModalFrame;
 
   function buildVideoModal() {
@@ -293,28 +336,32 @@
       '<button class="overlay-close" aria-label="Close video">' +
         '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
       '</button>' +
-      '<div class="video-modal__frame"><video controls playsinline></video></div>';
+      '<div class="video-modal__frame"></div>';
     document.body.appendChild(videoModal);
 
-    videoModalFrame = videoModal.querySelector('video');
+    videoModalFrame = videoModal.querySelector('.video-modal__frame');
     videoModal.querySelector('.overlay-close').addEventListener('click', closeVideoModal);
     videoModal.addEventListener('click', function (e) { if (e.target === videoModal) closeVideoModal(); });
   }
 
-  function openVideoModal(src, title) {
+  function openVideoModal(item) {
     if (!videoModal) buildVideoModal();
-    videoModalFrame.innerHTML = '<source src="' + esc(src) + '" type="video/mp4">';
-    videoModalFrame.setAttribute('aria-label', title || 'Video');
+    if (item.type === 'youtube') {
+      videoModalFrame.innerHTML =
+        '<iframe src="https://www.youtube.com/embed/' + esc(item.youtubeId) + '?autoplay=1&rel=0" ' +
+          'title="' + esc(item.title || 'Video') + '" frameborder="0" ' +
+          'allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    } else {
+      videoModalFrame.innerHTML = '<video controls playsinline autoplay aria-label="' + esc(item.title || 'Video') + '"><source src="' + esc(item.video) + '" type="video/mp4"></video>';
+    }
     videoModal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    videoModalFrame.load();
-    videoModalFrame.play().catch(function () {});
   }
   function closeVideoModal() {
     if (!videoModal) return;
     videoModal.classList.remove('is-open');
     document.body.style.overflow = '';
-    videoModalFrame.pause();
+    videoModalFrame.innerHTML = '';
   }
 
   /* ---------- Global overlay keyboard controls ---------- */
@@ -332,12 +379,22 @@
   /* ---------- Hero "Watch Highlights" button ---------- */
   function wireHeroButton() {
     var btn = document.getElementById('heroWatchBtn');
-    if (!btn || !DATA.videos || !DATA.videos.featured) return;
+    if (!btn || !DATA.videos || !DATA.videos.featured || DATA.videos.featured.placeholder) return;
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
-      openVideoModal(DATA.videos.featured.video, DATA.videos.featured.title);
+      openVideoModal(DATA.videos.featured);
     });
+  }
+
+  /* ---------- Hero "View Project" button (optional, per event) ---------- */
+  function wireProjectButton() {
+    var btn = document.getElementById('heroProjectBtn');
+    var link = DATA.hero && DATA.hero.projectLink;
+    if (!btn || !link || !link.href) return;
+    btn.textContent = link.label || 'View Project';
+    btn.setAttribute('href', link.href);
+    btn.style.display = '';
   }
 
   renderHero();
@@ -348,4 +405,5 @@
   renderSponsors();
   renderClosing();
   wireHeroButton();
+  wireProjectButton();
 })();

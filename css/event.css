@@ -1,12 +1,16 @@
 /* ============================================================
    Event / Case-Study template
    Extends css/style.css — relies on the same design tokens
-   (colors, type, spacing) defined in :root there.
+   (colors, type, spacing) defined in :root there. Also shared by
+   css/project.css, which reuses the generic components here
+   (.media-card, .masonry-gallery, .closing, .badge-pill,
+   .media-placeholder, lightbox / video-modal).
 
-   Content is data-driven: js/event-data.js supplies the values,
-   js/event.js renders them into the containers below and powers
-   the lightbox / video modal. To ship a new event, edit
-   js/event-data.js only.
+   Content is data-driven: each page under /events/ loads its own
+   js/events-data/<slug>.js (window.EVENT_DATA), and js/event.js
+   renders it into the containers below. To publish a new event,
+   duplicate an existing events/<slug>.html + js/events-data/<slug>.js
+   pair and edit the data file.
    ============================================================ */
 
 /* ---------- Buttons / accents not already in style.css ---------- */
@@ -27,6 +31,40 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* ---------- Media placeholder (cover / gallery / video not available yet) ---------- */
+.media-placeholder{
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(245,240,232,.06), rgba(245,240,232,.02));
+  color: var(--muted-taupe);
+  text-align: center;
+  padding: 16px;
+}
+.media-placeholder__icon{ color: var(--hairline); }
+.media-placeholder__label{
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--muted-taupe);
+  max-width: 20ch;
+}
+.masonry-gallery__item--placeholder{
+  aspect-ratio: 3 / 4;
+  cursor: default;
+}
+.masonry-gallery__item--placeholder:hover img{ transform: none; }
+
+/* Full-bleed backgrounds (hero / closing) have text anchored to the
+   bottom, so their placeholder sits near the top instead of dead-center
+   to avoid overlapping that text on shorter viewports. */
+.event-hero__media .media-placeholder,
+.closing__media .media-placeholder{
+  justify-content: flex-start;
+  padding-top: 15vh;
 }
 
 /* ---------- Badge pill (hero) ---------- */
@@ -79,6 +117,9 @@
   background:
     linear-gradient(0deg, rgba(10,10,10,1) 0%, rgba(10,10,10,.96) 45%, rgba(10,10,10,.88) 100%),
     linear-gradient(90deg, rgba(10,10,10,.75) 0%, rgba(10,10,10,.55) 30%, rgba(10,10,10,.55) 70%, rgba(10,10,10,.75) 100%);
+}
+.event-hero.has-placeholder-media .event-hero__scrim{
+  background: linear-gradient(0deg, rgba(10,10,10,.85) 0%, rgba(10,10,10,.5) 55%, rgba(10,10,10,.4) 100%);
 }
 .event-hero__content{
   position: relative;
@@ -410,10 +451,12 @@
   overflow: hidden;
   box-shadow: var(--shadow-lift);
 }
-.video-modal__frame video{
+.video-modal__frame video,
+.video-modal__frame iframe{
   width: 100%; height: 100%;
   object-fit: contain;
   background: #000;
+  border: 0;
 }
 
 /* ============================================================

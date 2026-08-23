@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uthuku Pindu Aarey – Premiere Event — Abhay Productions</title>
+<meta name="description" content="Uthuku Pindu Aarey – Premiere Event — an event by Abhay Productions. Highlights, films, and the gallery.">
+<link rel="icon" href="../assets/logo.png" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../assets/logo-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/event.css">
+</head>
+<body>
+
+<div class="page-loader" aria-hidden="true"><div class="page-loader__mark"></div></div>
+
+<header class="nav" id="siteNav">
+  <div class="nav__inner">
+    <a href="../index.html#home" class="nav__brand" aria-label="Abhay Productions — Home">
+      <img src="../assets/logo-icon.svg" alt="" class="nav__logo-icon" width="60" height="60">
+      <span class="nav__brand-text"><strong>ABHAY</strong> Productions</span>
+    </a>
+
+    <div class="nav__controls">
+      <nav class="nav__menu" id="navMenu">
+        <a href="../index.html#home" class="nav__link">Home</a>
+        <a href="../index.html#about" class="nav__link">About</a>
+        <a href="../index.html#events" class="nav__link">Events</a>
+        <a href="../index.html#projects" class="nav__link">Projects</a>
+        <a href="../index.html#sponsors" class="nav__link">Partners</a>
+        <a href="../index.html#contact" class="nav__link">Contact</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<main>
+
+  <!-- 1. HERO -->
+  <section class="event-hero" id="event-hero">
+    <div class="event-hero__media" id="heroMedia"></div>
+    <div class="event-hero__scrim"></div>
+    <div class="container event-hero__content">
+      <span class="badge-pill reveal" id="heroBadge"></span>
+      <h1 class="event-hero__title reveal" id="heroTitle"></h1>
+      <p class="event-hero__subtitle reveal" id="heroTagline"></p>
+      <p class="event-hero__meta reveal" id="heroMeta"></p>
+      <div class="event-hero__actions reveal">
+        <a href="#videos" id="heroWatchBtn" class="btn btn--primary">Watch Highlights</a>
+        <a href="#" id="heroProjectBtn" class="btn btn--ghost" style="display:none;"></a>
+      </div>
+    </div>
+    <div class="event-hero__scroll-cue" aria-hidden="true"><span></span></div>
+  </section>
+
+  <!-- 2. EVENT HIGHLIGHTS -->
+  <section class="section section--charcoal" id="highlights">
+    <div class="container">
+      <p class="eyebrow reveal">Highlights</p>
+      <h2 class="heading reveal">Moments That Mattered.</h2>
+
+      <div class="highlight-grid" id="highlightsGrid"></div>
+    </div>
+  </section>
+
+  <!-- 3. MAJOR VIDEOS -->
+  <section class="section" id="videos">
+    <div class="container">
+      <p class="eyebrow reveal">Videos</p>
+      <h2 class="heading reveal">Watch The Story.</h2>
+
+      <div class="video-showcase">
+        <article class="media-card media-card--wide media-card--feature video-showcase__featured reveal" id="videoFeatured"></article>
+        <div class="video-showcase__thumbs" id="videoThumbs"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PHOTO GALLERY -->
+  <section class="section section--charcoal" id="gallery">
+    <div class="container">
+      <p class="eyebrow reveal">Photo Gallery</p>
+      <h2 class="heading reveal">Frames From The Night.</h2>
+
+      <div class="masonry-gallery" id="galleryGrid"></div>
+
+      <div class="gallery-footer">
+        <button class="btn btn--ghost" id="galleryViewAllBtn">View Full Gallery</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. EVENT HIGHLIGHTS / NUMBERS -->
+  <section class="section event-stats-section" id="stats">
+    <div class="container">
+      <p class="eyebrow reveal">By The Numbers</p>
+      <h2 class="heading reveal">The Impact, In Numbers.</h2>
+      <div class="event-stats reveal" id="statsGrid"></div>
+    </div>
+  </section>
+
+  <!-- 6. SPONSORS & PARTNERS -->
+  <section class="section section--charcoal" id="sponsors">
+    <div class="container">
+      <p class="eyebrow reveal">Partners</p>
+      <h2 class="heading reveal">Sponsors &amp; Partners</h2>
+    </div>
+
+    <div class="marquee reveal">
+      <div class="marquee__fade marquee__fade--left" aria-hidden="true"></div>
+      <div class="marquee__fade marquee__fade--right" aria-hidden="true"></div>
+      <div class="marquee__track" id="sponsorsTrack"></div>
+    </div>
+  </section>
+
+  <!-- 7. CLOSING -->
+  <section class="closing">
+    <div class="closing__media" id="closingMedia"></div>
+    <div class="closing__scrim"></div>
+    <div class="closing__content reveal">
+      <h2 class="closing__statement" id="closingStatement"></h2>
+      <a href="../index.html#events" class="btn btn--primary btn--large" id="closingCta">Explore More Events</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" id="contact">
+  <div class="container footer__grid">
+    <div class="footer__col">
+      <a href="../index.html#home" class="footer__brand">
+        <img src="../assets/logo-icon.svg" alt="" class="footer__brand-icon" width="60" height="60">
+        <span class="footer__brand-text"><strong>ABHAY</strong> Productions</span>
+      </a>
+      <p class="footer__text">
+        A Visakhapatnam production house running for over 18 years, founded by T. Dhanunjay
+        &mdash; staging events, producing films, and giving local artists the platform and
+        recognition they deserve.
+      </p>
+      <div class="footer__socials">
+        <a href="https://www.instagram.com/abhay_productions/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="16" height="16"><rect x="4" y="4" width="16" height="16" rx="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16.9" cy="7.1" r="1.1" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.facebook.com/dhanunjayatumarada.tummarada" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M14 8.5h2.5V5.5h-2.7C11.5 5.5 10 7 10 9.2V11H7.5v3H10v7h3v-7h2.4l.4-3H13V9.4c0-.6.3-.9.9-.9z" fill="currentColor"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@ABHAYPRODUCTIONSOFFICIAL" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="16" height="16"><rect x="3.5" y="6" width="17" height="12" rx="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Twitter / X">
+          <svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__col footer__col--links">
+      <h3 class="footer__heading">Quick Links</h3>
+      <nav class="footer__links">
+        <a href="../index.html#home" class="footer__link">Home</a>
+        <a href="../index.html#about" class="footer__link">About</a>
+        <a href="../index.html#events" class="footer__link">Events</a>
+        <a href="../index.html#projects" class="footer__link">Projects</a>
+        <a href="../index.html#sponsors" class="footer__link">Partners</a>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <p>&copy; <span id="year"></span> Abhay Productions. All rights reserved.</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="../js/events-data/uthuku-pindu-aarey-premiere-event.js"></script>
+<script src="../js/event.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
