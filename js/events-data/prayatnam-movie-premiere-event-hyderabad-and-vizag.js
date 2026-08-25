@@ -41,13 +41,18 @@ window.EVENT_DATA = {
   ],
   "stats": [],
   "sponsors": [
-    { "name": "Nova Studios", "icon": "circle" },
-    { "name": "Vertex Media", "icon": "triangle" },
-    { "name": "Aurum Events", "icon": "hexagon" },
-    { "name": "Solstice Films", "icon": "diamond" },
-    { "name": "Meridian Arts", "icon": "wave" },
-    { "name": "Lumen Productions", "icon": "square" },
-    { "name": "Zenith Collective", "icon": "star" }
+    { "name": "SRKP Group", "image": "../assets/sponsor-srkp-group.png" },
+    { "name": "VMRDA", "image": "../assets/sponsor-vmrda.png" },
+    { "name": "Sri Kanti Theatre", "image": "../assets/sponsor-sri-kanti-theatre.png" },
+    { "name": "Good Print", "image": "../assets/sponsor-good-print.png" },
+    { "name": "Satya Entertainers", "image": "../assets/sponsor-satya-entertainers.png" },
+    { "name": "Jaya Kala Niketan", "image": "../assets/sponsor-jaya-kala-niketan.png" },
+    { "name": "Dhaliraju Super Market", "image": "../assets/sponsor-dhaliraju-supermarket.png" },
+    { "name": "Lokesh's Sarada Swara Sangamam", "image": "../assets/sponsor-sarada-swara-sangamam.png" },
+    { "name": "GVR Ramachandra Rao", "image": "../assets/sponsor-gvr-ramachandra-rao.png" },
+    { "name": "ScaleUp.co", "image": "../assets/sponsor-scaleup.png" },
+    { "name": "Dhanunjay Awards & Gifts", "image": "../assets/sponsor-dhanunjay-awards-gifts.png" },
+    { "name": "Raju Studio", "image": "../assets/sponsor-raju-studio.png" }
   ],
   "closing": {
     "media": { "type": "image", "src": "../assets/prayatnam-hyd-10.jpg" },

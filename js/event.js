@@ -255,6 +255,9 @@
     if (!DATA.sponsors || !DATA.sponsors.length) { hideSection('sponsors'); return; }
 
     var tiles = DATA.sponsors.map(function (s) {
+      if (s.image) {
+        return '<div class="logo-tile logo-tile--image"><span class="logo-tile__card"><img src="' + esc(s.image) + '" alt="' + esc(s.name) + '" loading="lazy"></span></div>';
+      }
       var icon = ICONS[s.icon] || ICONS.circle;
       return (
         '<div class="logo-tile">' +
