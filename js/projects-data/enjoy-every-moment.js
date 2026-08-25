@@ -42,9 +42,21 @@ window.PROJECT_DATA = {
       "alt": "Still coming soon"
     }
   ],
-  "video": {
-    "placeholder": true,
-    "title": "Trailer Coming Soon"
+  "videos": {
+    "featured": {
+      "type": "youtube",
+      "youtubeId": "61-Fi6NkJqs",
+      "poster": "https://img.youtube.com/vi/61-Fi6NkJqs/hqdefault.jpg",
+      "title": "Main Video"
+    },
+    "thumbs": [
+      {
+        "type": "youtube",
+        "youtubeId": "KmI78sfy8Jg",
+        "poster": "https://img.youtube.com/vi/KmI78sfy8Jg/hqdefault.jpg",
+        "title": "Teaser"
+      }
+    ]
   },
   "closing": {
     "media": {

@@ -258,6 +258,42 @@
   }
   Array.prototype.slice.call(document.querySelectorAll('.carousel, .coverflow')).forEach(initCarousel);
 
+  /* ---------- Premiere countdowns ----------
+     Drives any [data-premiere] element (hero card on the home page,
+     the featured video card on an event page) — ISO datetime in the
+     attribute, ticks every second, swaps to the live label once due. */
+  var premiereEls = Array.prototype.slice.call(document.querySelectorAll('[data-premiere]'));
+  if (premiereEls.length) {
+    var pad2 = function (n) { return n < 10 ? '0' + n : String(n); };
+    var formatCountdown = function (ms) {
+      var totalSec = Math.max(0, Math.floor(ms / 1000));
+      var d = Math.floor(totalSec / 86400);
+      var h = Math.floor((totalSec % 86400) / 3600);
+      var m = Math.floor((totalSec % 3600) / 60);
+      var s = totalSec % 60;
+      if (d > 0) return d + 'd ' + pad2(h) + 'h ' + pad2(m) + 'm';
+      return pad2(h) + 'h ' + pad2(m) + 'm ' + pad2(s) + 's';
+    };
+    var tickPremiere = function (el, target) {
+      var diff = target - Date.now();
+      if (diff <= 0) {
+        el.textContent = el.getAttribute('data-live-text') || 'Live now — Watch on YouTube';
+        el.classList.add('is-live');
+        return false;
+      }
+      el.textContent = 'Premieres in ' + formatCountdown(diff);
+      return true;
+    };
+    premiereEls.forEach(function (el) {
+      var target = new Date(el.getAttribute('data-premiere')).getTime();
+      if (isNaN(target)) return;
+      if (!tickPremiere(el, target)) return;
+      var timer = setInterval(function () {
+        if (!tickPremiere(el, target)) clearInterval(timer);
+      }, 1000);
+    });
+  }
+
   /* ---------- Smooth-scroll for in-page anchors ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
