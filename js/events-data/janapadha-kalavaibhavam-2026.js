@@ -58,46 +58,6 @@ window.EVENT_DATA = {
   },
   "gallery": [
     {
-      "image": "../assets/poster-young-talent-show.jpg",
-      "alt": "Young performers"
-    },
-    {
-      "image": "../assets/poster-megastar-car-garage.jpg",
-      "alt": "Guests of honour"
-    },
-    {
-      "image": "../assets/poster-black-sheep.jpg",
-      "alt": "Closing ceremony"
-    },
-    {
-      "image": "../assets/poster-uthuku-pindu-aarey.jpg",
-      "alt": "Audience reactions"
-    },
-    {
-      "image": "../assets/poster-oohalo-telalala.jpg",
-      "alt": "Performers backstage"
-    },
-    {
-      "image": "../assets/poster-hbkt.jpg",
-      "alt": "Stage decor and lighting"
-    },
-    {
-      "image": "../assets/poster-prayatnam.jpg",
-      "alt": "Drummers at the finale"
-    },
-    {
-      "image": "../assets/poster-enjoy-every-moment.jpg",
-      "alt": "Guests arriving"
-    },
-    {
-      "image": "../assets/poster-janapadha.jpg",
-      "alt": "Folk dance performance"
-    },
-    {
-      "image": "../assets/poster-janapadha-full.png",
-      "alt": "Opening ceremony crowd"
-    },
-    {
       "image": "../assets/gallery-janapadha-poster-unveil-entrance.jpg",
       "alt": "Dignitaries unveiling the Janapadha Kala Vaibhavam poster at the venue entrance"
     },
