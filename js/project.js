@@ -99,7 +99,12 @@
     });
   }
 
-  /* ---------- 4. Video ---------- */
+  /* ---------- 4. Video ----------
+     Two schemas are supported: the newer DATA.videos = {featured, thumbs}
+     (same shape as event pages, supports youtube-type items) used when a
+     project has real videos, and the legacy single DATA.video = {video,
+     title} (local mp4 only) still used by projects that only have a
+     "Coming Soon" placeholder. */
   function renderVideo() {
     var v = DATA.video;
     var featuredEl = document.getElementById('videoFeatured');
@@ -115,8 +120,51 @@
       '<button class="media-card__play" aria-label="Play ' + esc(v.title) + '">' + PLAY_ICON + '</button>' +
       '<div class="media-card__caption"><p class="media-card__title">' + esc(v.title) + '</p></div>';
     featuredEl.addEventListener('click', function () {
-      openVideoModal(v.video, v.title);
+      openVideoModal(v);
     });
+  }
+
+  function renderVideos() {
+    var v = DATA.videos;
+    if (!v) return;
+
+    var featuredEl = document.getElementById('videoFeatured');
+    if (featuredEl && v.featured) {
+      if (v.featured.placeholder) {
+        featuredEl.innerHTML = placeholderMedia(v.featured.title || 'Video Coming Soon');
+      } else {
+        featuredEl.innerHTML =
+          '<img src="' + esc(v.featured.poster) + '" alt="' + esc(v.featured.title) + '">' +
+          '<div class="media-card__scrim"></div>' +
+          '<button class="media-card__play" aria-label="Play ' + esc(v.featured.title) + '">' + PLAY_ICON + '</button>' +
+          '<div class="media-card__caption"><p class="media-card__title">' + esc(v.featured.title) + '</p></div>';
+        featuredEl.addEventListener('click', function () {
+          openVideoModal(v.featured);
+        });
+      }
+    }
+
+    var thumbsEl = document.getElementById('videoThumbs');
+    if (thumbsEl && (!v.thumbs || !v.thumbs.length)) thumbsEl.style.display = 'none';
+    if (thumbsEl && v.thumbs && v.thumbs.length) {
+      thumbsEl.innerHTML = v.thumbs.map(function (item, i) {
+        return (
+          '<article class="media-card" data-index="' + i + '">' +
+            '<img src="' + esc(item.poster) + '" alt="' + esc(item.title) + '">' +
+            '<div class="media-card__scrim"></div>' +
+            '<button class="media-card__play" aria-label="Play ' + esc(item.title) + '">' + PLAY_ICON + '</button>' +
+            '<div class="media-card__caption"><p class="media-card__title">' + esc(item.title) + '</p></div>' +
+          '</article>'
+        );
+      }).join('');
+
+      Array.prototype.slice.call(thumbsEl.querySelectorAll('.media-card')).forEach(function (card) {
+        card.addEventListener('click', function () {
+          var i = parseInt(card.getAttribute('data-index'), 10);
+          openVideoModal(v.thumbs[i]);
+        });
+      });
+    }
   }
 
   /* ---------- 5. Closing ---------- */
@@ -208,28 +256,34 @@
       '<button class="overlay-close" aria-label="Close video">' +
         '<svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
       '</button>' +
-      '<div class="video-modal__frame"><video controls playsinline></video></div>';
+      '<div class="video-modal__frame"></div>';
     document.body.appendChild(videoModal);
 
-    videoModalFrame = videoModal.querySelector('video');
+    videoModalFrame = videoModal.querySelector('.video-modal__frame');
     videoModal.querySelector('.overlay-close').addEventListener('click', closeVideoModal);
     videoModal.addEventListener('click', function (e) { if (e.target === videoModal) closeVideoModal(); });
   }
 
-  function openVideoModal(src, title) {
+  /* Accepts either a youtube-type item ({ type: 'youtube', youtubeId, title })
+     or a local-video item ({ video, title }) — same shape as event.js. */
+  function openVideoModal(item) {
     if (!videoModal) buildVideoModal();
-    videoModalFrame.innerHTML = '<source src="' + esc(src) + '" type="video/mp4">';
-    videoModalFrame.setAttribute('aria-label', title || 'Video');
+    if (item.type === 'youtube') {
+      videoModalFrame.innerHTML =
+        '<iframe src="https://www.youtube.com/embed/' + esc(item.youtubeId) + '?autoplay=1&rel=0" ' +
+          'title="' + esc(item.title || 'Video') + '" frameborder="0" ' +
+          'allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    } else {
+      videoModalFrame.innerHTML = '<video controls playsinline autoplay aria-label="' + esc(item.title || 'Video') + '"><source src="' + esc(item.video) + '" type="video/mp4"></video>';
+    }
     videoModal.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    videoModalFrame.load();
-    videoModalFrame.play().catch(function () {});
   }
   function closeVideoModal() {
     if (!videoModal) return;
     videoModal.classList.remove('is-open');
     document.body.style.overflow = '';
-    videoModalFrame.pause();
+    videoModalFrame.innerHTML = '';
   }
 
   /* ---------- Global overlay keyboard controls ---------- */
@@ -247,18 +301,19 @@
   /* ---------- Hero "Watch Trailer" button ---------- */
   function wireHeroButton() {
     var btn = document.getElementById('heroWatchBtn');
-    if (!btn || !DATA.video || DATA.video.placeholder) return;
+    var v = DATA.videos ? DATA.videos.featured : DATA.video;
+    if (!btn || !v || v.placeholder) return;
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
-      openVideoModal(DATA.video.video, DATA.video.title);
+      openVideoModal(v);
     });
   }
 
   renderHero();
   renderOverview();
   renderGallery();
-  renderVideo();
+  if (DATA.videos) renderVideos(); else renderVideo();
   renderClosing();
   wireHeroButton();
 })();

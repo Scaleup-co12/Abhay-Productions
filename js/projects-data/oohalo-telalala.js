@@ -42,9 +42,33 @@ window.PROJECT_DATA = {
       "alt": "Still coming soon"
     }
   ],
-  "video": {
-    "placeholder": true,
-    "title": "Trailer Coming Soon"
+  "videos": {
+    "featured": {
+      "type": "youtube",
+      "youtubeId": "BU6VLdOrq3M",
+      "poster": "https://img.youtube.com/vi/BU6VLdOrq3M/hqdefault.jpg",
+      "title": "Main Video (Telugu)"
+    },
+    "thumbs": [
+      {
+        "type": "youtube",
+        "youtubeId": "fUbnALQT5oM",
+        "poster": "https://img.youtube.com/vi/fUbnALQT5oM/hqdefault.jpg",
+        "title": "Telugu Trailer"
+      },
+      {
+        "type": "youtube",
+        "youtubeId": "5npknv9UWp4",
+        "poster": "https://img.youtube.com/vi/5npknv9UWp4/hqdefault.jpg",
+        "title": "Tamil Trailer"
+      },
+      {
+        "type": "youtube",
+        "youtubeId": "1x33jNz_7O8",
+        "poster": "https://img.youtube.com/vi/1x33jNz_7O8/hqdefault.jpg",
+        "title": "Hindi Trailer"
+      }
+    ]
   },
   "closing": {
     "media": {

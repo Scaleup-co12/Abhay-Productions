@@ -42,9 +42,33 @@ window.PROJECT_DATA = {
       "alt": "Still coming soon"
     }
   ],
-  "video": {
-    "placeholder": true,
-    "title": "Trailer Coming Soon"
+  "videos": {
+    "featured": {
+      "type": "youtube",
+      "youtubeId": "iIzNx8xbmPM",
+      "poster": "https://img.youtube.com/vi/iIzNx8xbmPM/hqdefault.jpg",
+      "title": "Main Video"
+    },
+    "thumbs": [
+      {
+        "type": "youtube",
+        "youtubeId": "cDmrZTm2DsE",
+        "poster": "https://img.youtube.com/vi/cDmrZTm2DsE/hqdefault.jpg",
+        "title": "Song Video"
+      },
+      {
+        "type": "youtube",
+        "youtubeId": "fdLklpWiqJY",
+        "poster": "https://img.youtube.com/vi/fdLklpWiqJY/hqdefault.jpg",
+        "title": "Teaser"
+      },
+      {
+        "type": "youtube",
+        "youtubeId": "HVXyQeuqLuA",
+        "poster": "https://img.youtube.com/vi/HVXyQeuqLuA/hqdefault.jpg",
+        "title": "Making Video"
+      }
+    ]
   },
   "closing": {
     "media": {

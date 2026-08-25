@@ -18,7 +18,12 @@ window.EVENT_DATA = {
     { "type": "image", "image": "../assets/sangaseva-puraskaram-09.jpg", "title": "Media Coverage" }
   ],
   "videos": {
-    "featured": { "placeholder": true, "title": "Event Recap Coming Soon" },
+    "featured": {
+      "type": "youtube",
+      "youtubeId": "DDxC90ZfpzU",
+      "poster": "https://img.youtube.com/vi/DDxC90ZfpzU/hqdefault.jpg",
+      "title": "Main Video"
+    },
     "thumbs": []
   },
   "gallery": [

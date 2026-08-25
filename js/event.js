@@ -96,7 +96,7 @@
           '</article>'
         );
       }
-      var play = item.type === 'video'
+      var play = (item.type === 'video' || item.type === 'instagram')
         ? '<button class="highlight-card__play" aria-label="Play video">' + PLAY_ICON + '</button>'
         : '';
       return (
@@ -104,7 +104,10 @@
           '<img src="' + esc(item.image) + '" alt="' + esc(item.title) + '" loading="lazy">' +
           '<div class="highlight-card__scrim"></div>' +
           play +
-          '<h3 class="highlight-card__title">' + esc(item.title) + '</h3>' +
+          '<div class="highlight-card__caption">' +
+            '<h3 class="highlight-card__title">' + esc(item.title) + '</h3>' +
+            (item.tag ? '<span class="highlight-card__tag">' + esc(item.tag) + '</span>' : '') +
+          '</div>' +
         '</article>'
       );
     }).join('');
@@ -114,7 +117,9 @@
         var i = parseInt(card.getAttribute('data-index'), 10);
         var item = DATA.highlights[i];
         if (item.placeholder) return;
-        if (item.type === 'video') {
+        if (item.watchUrl) {
+          window.open(item.watchUrl, '_blank', 'noopener,noreferrer');
+        } else if (item.type === 'video') {
           openVideoModal(item);
         } else {
           openLightbox([{ image: item.image, alt: item.title }], 0);
@@ -133,16 +138,26 @@
       if (v.featured.placeholder) {
         featuredEl.innerHTML = placeholderMedia(v.featured.title || 'Video Coming Soon');
       } else {
+        var isPremiere = v.featured.type === 'youtube-premiere';
         featuredEl.innerHTML =
           '<img src="' + esc(v.featured.poster) + '" alt="' + esc(v.featured.title) + '">' +
           '<div class="media-card__scrim"></div>' +
           '<button class="media-card__play" aria-label="Play ' + esc(v.featured.title) + '">' + PLAY_ICON + '</button>' +
           '<div class="media-card__caption">' +
+            (isPremiere ? '<span class="premiere-badge"><span class="premiere-badge__dot" aria-hidden="true"></span>Premiere</span>' : '') +
             '<p class="media-card__title">' + esc(v.featured.title) + '</p>' +
-            '<span class="media-card__tag">' + esc(v.featured.meta) + '</span>' +
+            (isPremiere
+              ? '<p class="premiere-countdown" data-premiere="' + esc(v.featured.premiereAt) + '" data-live-text="' + esc(v.featured.liveText || 'Live now — Watch on YouTube') + '">Premieres soon</p>'
+              : '<span class="media-card__tag">' + esc(v.featured.meta) + '</span>') +
           '</div>';
+        featuredEl.classList.toggle('media-card--premiere', isPremiere);
+        featuredEl.setAttribute('aria-label', 'Watch ' + (v.featured.title || 'video') + (isPremiere ? ' on YouTube' : ''));
         featuredEl.addEventListener('click', function () {
-          openVideoModal(v.featured);
+          if (isPremiere && v.featured.watchUrl) {
+            window.open(v.featured.watchUrl, '_blank', 'noopener,noreferrer');
+          } else {
+            openVideoModal(v.featured);
+          }
         });
       }
     }
@@ -156,7 +171,10 @@
             '<img src="' + esc(item.poster) + '" alt="' + esc(item.title) + '">' +
             '<div class="media-card__scrim"></div>' +
             '<button class="media-card__play" aria-label="Play ' + esc(item.title) + '">' + PLAY_ICON + '</button>' +
-            '<div class="media-card__caption"><p class="media-card__title">' + esc(item.title) + '</p></div>' +
+            '<div class="media-card__caption">' +
+              '<p class="media-card__title">' + esc(item.title) + '</p>' +
+              (item.tag ? '<span class="media-card__tag">' + esc(item.tag) + '</span>' : '') +
+            '</div>' +
           '</article>'
         );
       }).join('');
@@ -165,7 +183,11 @@
         card.addEventListener('click', function () {
           var i = parseInt(card.getAttribute('data-index'), 10);
           var item = v.thumbs[i];
-          openVideoModal(item);
+          if (item.watchUrl) {
+            window.open(item.watchUrl, '_blank', 'noopener,noreferrer');
+          } else {
+            openVideoModal(item);
+          }
         });
       });
     }
