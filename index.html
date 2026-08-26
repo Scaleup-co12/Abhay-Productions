@@ -45,9 +45,7 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero__media">
-      <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
-        <source src="assets/hero-video.mp4" type="video/mp4">
-      </video>
+      <div id="heroYouTube" class="hero__video hero__video--youtube"></div>
       <div class="hero__scrim"></div>
     </div>
 
@@ -55,20 +53,6 @@
       <svg class="hero__sound-icon hero__sound-icon--muted" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18V6L7.5 9.5H4z" fill="currentColor"/><path d="M16.5 9l4 6M20.5 9l-4 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
       <svg class="hero__sound-icon hero__sound-icon--unmuted" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M4 9.5v5h3.5L12 18V6L7.5 9.5H4z" fill="currentColor"/><path d="M16 8.7a4.8 4.8 0 0 1 0 6.6M18.3 6.4a8 8 0 0 1 0 11.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg>
     </button>
-
-    <a class="hero__premiere" id="heroPremiere" href="https://youtu.be/RBwwtx7mX_w" target="_blank" rel="noopener noreferrer" aria-label="Watch Janapadha Kalavaibhavam 2026 — Official Premiere on YouTube">
-      <div class="hero__premiere-thumb">
-        <img src="https://img.youtube.com/vi/RBwwtx7mX_w/hqdefault.jpg" alt="" loading="lazy">
-        <span class="hero__premiere-play" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M8 5l12 7-12 7z" fill="currentColor"/></svg>
-        </span>
-      </div>
-      <div class="hero__premiere-body">
-        <span class="premiere-badge"><span class="premiere-badge__dot" aria-hidden="true"></span>Premiere</span>
-        <p class="hero__premiere-title">Janapadha Kalavaibhavam 2026 &mdash; Official Premiere</p>
-        <p class="premiere-countdown" data-premiere="2026-08-25T14:00:00+05:30" data-live-text="Live now &mdash; Watch on YouTube">Premieres this afternoon</p>
-      </div>
-    </a>
   </section>
 
   <!-- ABOUT -->
@@ -485,6 +469,7 @@
   <svg viewBox="0 0 24 24" width="18" height="18"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
+<script src="https://www.youtube.com/iframe_api"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

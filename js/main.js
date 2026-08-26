@@ -13,15 +13,60 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ---------- Hero video sound toggle ---------- */
-  var heroVideo = document.querySelector('.hero__video');
+  /* ---------- Hero video (YouTube IFrame API) ---------- */
   var heroSoundToggle = document.getElementById('heroSoundToggle');
-  if (heroVideo && heroSoundToggle) {
-    heroSoundToggle.addEventListener('click', function () {
-      heroVideo.muted = !heroVideo.muted;
-      heroSoundToggle.classList.toggle('is-unmuted', !heroVideo.muted);
-      heroSoundToggle.setAttribute('aria-pressed', String(!heroVideo.muted));
-      heroSoundToggle.setAttribute('aria-label', heroVideo.muted ? 'Unmute video' : 'Mute video');
+  var heroPlayer = null;
+  var heroMuted = true;
+
+  window.onYouTubeIframeAPIReady = function () {
+    if (!document.getElementById('heroYouTube')) return;
+    heroPlayer = new YT.Player('heroYouTube', {
+      videoId: 'RBwwtx7mX_w',
+      playerVars: {
+        autoplay: 1,
+        mute: 1,
+        controls: 0,
+        disablekb: 1,
+        rel: 0,
+        showinfo: 0,
+        modestbranding: 1,
+        playsinline: 1,
+        iv_load_policy: 3,
+        fs: 0
+      },
+      events: {
+        onReady: function (e) {
+          e.target.mute();
+          e.target.playVideo();
+          e.target.setPlaybackQuality('hd1080');
+        },
+        onStateChange: function (e) {
+          if (e.data === YT.PlayerState.ENDED) {
+            e.target.seekTo(0);
+            e.target.playVideo();
+          }
+        }
+      }
+    });
+  };
+
+  if (heroSoundToggle) {
+    heroSoundToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (!heroPlayer) return;
+      heroMuted = !heroMuted;
+      if (heroMuted) { heroPlayer.mute(); } else { heroPlayer.unMute(); }
+      heroSoundToggle.classList.toggle('is-unmuted', !heroMuted);
+      heroSoundToggle.setAttribute('aria-pressed', String(!heroMuted));
+      heroSoundToggle.setAttribute('aria-label', heroMuted ? 'Unmute video' : 'Mute video');
+    });
+  }
+
+  /* ---------- Hero click-through to YouTube ---------- */
+  var heroSection = document.getElementById('home');
+  if (heroSection) {
+    heroSection.addEventListener('click', function () {
+      window.open('https://youtu.be/RBwwtx7mX_w', '_blank', 'noopener,noreferrer');
     });
   }
 
