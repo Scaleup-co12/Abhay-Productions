@@ -1,15 +1,17 @@
 /* ============================================================
    Souvenir Book promo popup
-   Shows once per browsing session (sessionStorage), on a short
-   delay after page load. Asset paths are resolved relative to
-   this script's own <script src> so the same file works whether
-   it's loaded from the site root or from a subfolder page.
+   Shows once per browsing session (sessionStorage), automatically
+   and immediately on first load — decoupled from window 'load' so
+   heavy hero media (video/YouTube) can't delay it. Asset paths are
+   resolved relative to this script's own <script src> so the same
+   file works whether it's loaded from the site root or a subfolder.
    ============================================================ */
 (function () {
   'use strict';
 
   var STORAGE_KEY = 'jkvSouvenirPopupSeen';
-  var SHOW_DELAY_MS = 1800;
+  var SHOW_DELAY_MS = 250;
+  var CLOSE_ANIM_MS = 650;
 
   try {
     if (sessionStorage.getItem(STORAGE_KEY)) return;
@@ -41,7 +43,7 @@
           '<svg viewBox="0 0 24 24" width="16" height="16"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
         '</button>' +
         '<div class="souvenir-popup__media">' +
-          '<img src="' + COVER_URL + '" alt="Andhra Pradesh Janapadha Kalavaibhavam 2026 Souvenir Book cover" loading="lazy">' +
+          '<img src="' + COVER_URL + '" alt="Andhra Pradesh Janapadha Kalavaibhavam 2026 Souvenir Book cover" loading="eager" decoding="async" fetchpriority="high">' +
         '</div>' +
         '<div class="souvenir-popup__content">' +
           '<p class="eyebrow">Souvenir Book</p>' +
@@ -63,7 +65,7 @@
       window.removeEventListener('keydown', onKeydown);
       setTimeout(function () {
         if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-      }, 500);
+      }, CLOSE_ANIM_MS);
     }
 
     function onKeydown(e) {
@@ -85,7 +87,17 @@
     });
   }
 
-  window.addEventListener('load', function () {
+  function schedule() {
     setTimeout(buildPopup, SHOW_DELAY_MS);
-  });
+  }
+
+  /* This script tag sits at the end of <body>, so the DOM is already
+     parsed by the time it runs — no need to wait for DOMContentLoaded,
+     and definitely not for window 'load' (hero video/YouTube can take
+     many seconds, which would delay the popup and defeat "immediately"). */
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', schedule);
+  } else {
+    schedule();
+  }
 })();
