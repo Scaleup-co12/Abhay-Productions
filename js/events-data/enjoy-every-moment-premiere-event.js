@@ -18,7 +18,12 @@ window.EVENT_DATA = {
     { "type": "image", "image": "../assets/enjoy-every-moment-04.jpg", "title": "Trophy Presentation" }
   ],
   "videos": {
-    "featured": { "placeholder": true, "title": "Event Recap Coming Soon" },
+    "featured": {
+      "type": "youtube",
+      "youtubeId": "gvidUF2Qoew",
+      "poster": "https://img.youtube.com/vi/gvidUF2Qoew/hqdefault.jpg",
+      "title": "Full Event Video"
+    },
     "thumbs": []
   },
   "gallery": [
