@@ -17,7 +17,12 @@ window.EVENT_DATA = {
     { "type": "image", "image": "../assets/journey-of-cinema-03.jpg", "title": "Behind The Scenes" }
   ],
   "videos": {
-    "featured": { "placeholder": true, "title": "Event Recap Coming Soon" },
+    "featured": {
+      "type": "youtube",
+      "youtubeId": "WNkniADDNKA",
+      "poster": "https://img.youtube.com/vi/WNkniADDNKA/hqdefault.jpg",
+      "title": "Event Recap"
+    },
     "thumbs": []
   },
   "gallery": [
