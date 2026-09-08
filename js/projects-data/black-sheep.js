@@ -22,12 +22,15 @@ window.PROJECT_DATA = {
     { "image": "../assets/black-sheep-still-05.jpg", "alt": "Cast striking a stylish group pose" },
     { "image": "../assets/black-sheep-still-06.jpg", "alt": "Cast sharing a laugh between takes" },
     { "image": "../assets/black-sheep-still-07.jpg", "alt": "Actor recording a voiceover on a green screen set" },
-    { "image": "../assets/black-sheep-still-08.jpg", "alt": "Cast celebrating together with their bikes" }
+    { "image": "../assets/black-sheep-still-08.jpg", "alt": "Cast celebrating together with their bikes" },
+    { "image": "../assets/black-sheep-still-09.jpg", "alt": "Beware of Black Sheep - they're everywhere poster with the full cast" }
   ],
   "videos": {
     "featured": {
-      "placeholder": true,
-      "title": "Video Coming Soon"
+      "type": "youtube",
+      "youtubeId": "1fK7oPjGsws",
+      "poster": "https://img.youtube.com/vi/1fK7oPjGsws/hqdefault.jpg",
+      "title": "Main Video"
     },
     "thumbs": []
   },
