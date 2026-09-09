@@ -17,10 +17,6 @@ window.EVENT_DATA = {
     { "type": "image", "image": "../assets/bangaru-bidda-09.jpg", "title": "Group Formation" },
     { "type": "image", "image": "../assets/bangaru-bidda-05.jpg", "title": "Cast & Guests" }
   ],
-  "videos": {
-    "featured": { "placeholder": true, "title": "Event Recap Coming Soon" },
-    "thumbs": []
-  },
   "gallery": [
     { "image": "../assets/bangaru-bidda-01.jpg", "alt": "On stage during the performance" },
     { "image": "../assets/bangaru-bidda-02.jpg", "alt": "Chief guests on stage" },
