@@ -11,7 +11,7 @@ window.EVENT_DATA = {
     "location": "Sri Kanti Theatre",
     "media": {
       "type": "image",
-      "src": "../assets/poster-janapadha-full.png"
+      "src": "../assets/poster-janapadha-full.jpg"
     }
   },
   "highlights": [
@@ -145,7 +145,7 @@ window.EVENT_DATA = {
   "closing": {
     "media": {
       "type": "image",
-      "src": "../assets/poster-janapadha-full.png"
+      "src": "../assets/poster-janapadha-full.jpg"
     },
     "statement": "Thank you for being part of <span class=\"text-gold\">Janapadha Kalavaibhavam 2026</span>.",
     "ctaText": "Explore More Events",
