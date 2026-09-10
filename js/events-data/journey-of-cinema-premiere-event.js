@@ -9,7 +9,7 @@ window.EVENT_DATA = {
     "tagline": "A grand celebration of Cinema History Vizag, tracing the journey of cinema from 1895 to 2020.",
     "date": "21 July 2026",
     "location": "",
-    "media": { "type": "image", "src": "../assets/journey-of-cinema-01.jpg" }
+    "media": { "type": "image", "src": "../assets/journey-of-cinema-poster.jpg" }
   },
   "highlights": [
     { "type": "image", "image": "../assets/journey-of-cinema-01.jpg", "title": "Grand Success On Stage" },
@@ -46,7 +46,7 @@ window.EVENT_DATA = {
     { "name": "Raju Studio", "image": "../assets/sponsor-raju-studio.png" }
   ],
   "closing": {
-    "media": { "type": "image", "src": "../assets/journey-of-cinema-01.jpg" },
+    "media": { "type": "image", "src": "../assets/journey-of-cinema-poster.jpg" },
     "statement": "Thank you for being part of <span class=\"text-gold\">Journey of Cinema</span>.",
     "ctaText": "Explore More Events",
     "ctaHref": "../index.html#events"
