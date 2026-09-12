@@ -161,7 +161,8 @@ ul{ list-style:none; padding:0; margin:0; }
   width:100%;
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--gutter);
+  padding: 0;
+  position: relative;
   display:flex; align-items:center; justify-content:space-between;
   gap: 24px;
 }
@@ -194,12 +195,15 @@ ul{ list-style:none; padding:0; margin:0; }
   align-items:center;
   gap: 28px;
 }
-@media (max-width: 860px){
+@media (max-width: 1150px){
   .nav__controls{ gap: 16px; }
 }
 
 .nav__menu{
-  display:flex; align-items:center; gap: 32px;
+  display:flex; align-items:center; justify-content:center; gap: 32px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .nav__link{
   position: relative;
@@ -221,9 +225,14 @@ ul{ list-style:none; padding:0; margin:0; }
 .nav__link:hover, .nav__link.is-active{ color: var(--gold-1); }
 .nav__link:hover::after, .nav__link.is-active::after{ right:0; }
 
-.nav__cta{
-  padding: 11px 22px;
-  font-size: 11px;
+.btn.nav__cta{
+  padding: 8px 16px;
+  font-size: 10px;
+}
+.btn.nav__cta--menu{ display:none; }
+@media (max-width: 1150px){
+  .btn.nav__cta--bar{ display:none; }
+  .btn.nav__cta--menu{ display:inline-flex; }
 }
 
 .nav__toggle{
@@ -243,11 +252,11 @@ ul{ list-style:none; padding:0; margin:0; }
 .nav__toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
 .nav__toggle[aria-expanded="true"] span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
 
-@media (max-width: 860px){
+@media (max-width: 1150px){
   .nav__toggle{ display:flex; }
   .nav__menu{
     position: fixed;
-    top: 0; right:0;
+    top: 0; right:0; left: auto;
     height: 100vh;
     width: min(78vw, 320px);
     background: var(--charcoal);
@@ -416,6 +425,10 @@ ul{ list-style:none; padding:0; margin:0; }
 }
 .about__socials{ display:flex; gap: 14px; margin-top: 32px; }
 .about__website-btn{ margin-top: 24px; }
+.btn.about__website-btn{
+  white-space: normal;
+  text-align: center;
+}
 .stat{ display:flex; flex-direction:column; gap:6px; }
 .stat__num{
   font-family: var(--font-body);
@@ -436,6 +449,21 @@ ul{ list-style:none; padding:0; margin:0; }
   .about__grid{ grid-template-columns: 1fr; gap: 40px; }
   .about__media-inner{ max-width: 420px; }
 }
+
+/* ============================================================
+   Contact
+   ============================================================ */
+.contact-phone{
+  display:inline-block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: .02em;
+  color: var(--gold-1);
+  margin-top: 20px;
+  transition: color .3s var(--ease);
+}
+.contact-phone:hover{ color: var(--gold-2); }
 
 /* ============================================================
    Cards (event / project posters)
