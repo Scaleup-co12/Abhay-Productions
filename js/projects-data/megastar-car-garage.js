@@ -27,6 +27,15 @@ window.PROJECT_DATA = {
     { "image": "../assets/megastar-car-garage-still-10.jpg", "alt": "Lead actor in a white jacket striking a pose inside the garage" },
     { "image": "../assets/megastar-car-garage-still-11.jpg", "alt": "Lead actor pointing skyward beside a red car in an energetic dance pose" }
   ],
+  "videos": {
+    "featured": {
+      "type": "youtube",
+      "youtubeId": "7gOm-L7wPH4",
+      "poster": "https://img.youtube.com/vi/7gOm-L7wPH4/hqdefault.jpg",
+      "title": "Main Video"
+    },
+    "thumbs": []
+  },
   "closing": {
     "media": { "type": "image", "src": "../assets/megastar-car-garage-still-11.jpg" },
     "statement": "Thank you for following <span class=\"text-gold\">Megastar Car Garage</span>.",
