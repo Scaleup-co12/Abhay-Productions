@@ -14,6 +14,7 @@
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- Hero video (YouTube IFrame API) ---------- */
+  var HERO_YOUTUBE_ID = 'VHJsqgqm9ok';
   var heroSoundToggle = document.getElementById('heroSoundToggle');
   var heroPlayer = null;
   var heroMuted = true;
@@ -21,7 +22,7 @@
   window.onYouTubeIframeAPIReady = function () {
     if (!document.getElementById('heroYouTube')) return;
     heroPlayer = new YT.Player('heroYouTube', {
-      videoId: 'RBwwtx7mX_w',
+      videoId: HERO_YOUTUBE_ID,
       playerVars: {
         autoplay: 1,
         mute: 1,
@@ -66,7 +67,7 @@
   var heroSection = document.getElementById('home');
   if (heroSection) {
     heroSection.addEventListener('click', function () {
-      window.open('https://youtu.be/RBwwtx7mX_w', '_blank', 'noopener,noreferrer');
+      window.open('https://youtu.be/' + HERO_YOUTUBE_ID, '_blank', 'noopener,noreferrer');
     });
   }
 
