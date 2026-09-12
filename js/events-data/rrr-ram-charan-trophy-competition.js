@@ -7,7 +7,7 @@ window.EVENT_DATA = {
     "badge": "✓ Event Concluded",
     "name": "RRR Ram Charan Trophy Competition",
     "tagline": "A state-level competition honoring young talent, felicitated with the Ram Charan Trophy.",
-    "date": "21 July 2026",
+    "date": "19 December 2021",
     "location": "",
     "media": { "type": "image", "src": "../assets/rrr-ram-charan-trophy-05.jpg" }
   },

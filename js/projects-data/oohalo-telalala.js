@@ -7,7 +7,7 @@ window.PROJECT_DATA = {
     "badge": "Project",
     "name": "Oohalo Telalala",
     "tagline": "A family drama, released in Telugu, Tamil, and Hindi.",
-    "date": "21 July 2026",
+    "date": "14 – 26 April 2023",
     "media": { "type": "image", "src": "../assets/poster-oohalo-telalala.jpg" }
   },
   "overview": {

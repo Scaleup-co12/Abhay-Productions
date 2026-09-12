@@ -7,7 +7,7 @@ window.EVENT_DATA = {
     "badge": "✓ Event Concluded",
     "name": "Journey of Cinema – Premiere Event",
     "tagline": "A grand celebration of Cinema History Vizag, tracing the journey of cinema from 1895 to 2020.",
-    "date": "21 July 2026",
+    "date": "19 December 2020",
     "location": "",
     "media": { "type": "image", "src": "../assets/journey-of-cinema-poster.jpg" }
   },

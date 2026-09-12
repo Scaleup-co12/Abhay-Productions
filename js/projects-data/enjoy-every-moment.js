@@ -7,7 +7,7 @@ window.PROJECT_DATA = {
     "badge": "Project",
     "name": "Enjoy Every Moment",
     "tagline": "Life's too short — enjoy every moment.",
-    "date": "21 July 2026",
+    "date": "2 February 2017",
     "media": { "type": "image", "src": "../assets/poster-enjoy-every-moment.jpg" }
   },
   "overview": {

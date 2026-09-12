@@ -7,7 +7,7 @@ window.EVENT_DATA = {
     "badge": "✓ Event Concluded",
     "name": "Janapadha Kalavaibhavam 2026",
     "tagline": "A cinematic celebration of folk art and tradition, told in one night.",
-    "date": "25 August 2026",
+    "date": "25 August 2025",
     "location": "Sri Kanti Theatre",
     "media": {
       "type": "image",
