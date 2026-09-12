@@ -193,6 +193,35 @@
     }
   }
 
+  /* ---------- 3B. Performances ---------- */
+  function renderPerformances() {
+    var grid = document.getElementById('performancesGrid');
+    if (!grid) return;
+    if (!DATA.performances || !DATA.performances.length) { hideSection('performances'); return; }
+
+    grid.innerHTML = DATA.performances.map(function (item, i) {
+      return (
+        '<article class="media-card" data-index="' + i + '">' +
+          '<img src="' + esc(item.poster) + '" alt="' + esc(item.title) + '" loading="lazy">' +
+          '<div class="media-card__scrim"></div>' +
+          '<button class="media-card__play" aria-label="Play ' + esc(item.title) + '">' + PLAY_ICON + '</button>' +
+          '<div class="media-card__caption">' +
+            '<p class="media-card__title">' + esc(item.title) + '</p>' +
+            (item.tag ? '<span class="media-card__tag">' + esc(item.tag) + '</span>' : '') +
+          '</div>' +
+        '</article>'
+      );
+    }).join('');
+
+    Array.prototype.slice.call(grid.querySelectorAll('.media-card')).forEach(function (card) {
+      card.addEventListener('click', function () {
+        var i = parseInt(card.getAttribute('data-index'), 10);
+        var item = DATA.performances[i];
+        if (item.watchUrl) window.open(item.watchUrl, '_blank', 'noopener,noreferrer');
+      });
+    });
+  }
+
   /* ---------- 4. Gallery ---------- */
   function renderGallery() {
     var grid = document.getElementById('galleryGrid');
@@ -425,6 +454,7 @@
   renderHero();
   renderHighlights();
   renderVideos();
+  renderPerformances();
   renderGallery();
   renderStats();
   renderSponsors();

@@ -54,8 +54,34 @@ window.EVENT_DATA = {
       "premiereAt": "2026-08-25T14:00:00+05:30",
       "liveText": "Live now — Watch on YouTube"
     },
-    "thumbs": []
+    "thumbs": [
+      {
+        "type": "youtube",
+        "poster": "https://img.youtube.com/vi/VHJsqgqm9ok/hqdefault.jpg",
+        "youtubeId": "VHJsqgqm9ok",
+        "watchUrl": "https://youtu.be/VHJsqgqm9ok",
+        "title": "Trailer of Event",
+        "tag": "Trailer"
+      }
+    ]
   },
+  "performances": [
+    { "poster": "https://img.youtube.com/vi/Pp3_9RISiNI/hqdefault.jpg", "watchUrl": "https://youtu.be/Pp3_9RISiNI", "title": "Performance 1", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/KIVHBIHelfM/hqdefault.jpg", "watchUrl": "https://youtu.be/KIVHBIHelfM", "title": "Performance 2", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/0-TVt2ilLUM/hqdefault.jpg", "watchUrl": "https://youtu.be/0-TVt2ilLUM", "title": "Performance 3", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/Lf4GwLkR888/hqdefault.jpg", "watchUrl": "https://youtu.be/Lf4GwLkR888", "title": "Performance 4", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/vyZbFfK3vhc/hqdefault.jpg", "watchUrl": "https://youtu.be/vyZbFfK3vhc", "title": "Performance 5", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/qn_YIy731Qs/hqdefault.jpg", "watchUrl": "https://youtu.be/qn_YIy731Qs", "title": "Performance 6", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/Qgwni3tQQ-0/hqdefault.jpg", "watchUrl": "https://youtu.be/Qgwni3tQQ-0", "title": "Performance 7", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/AC3cxFCrg4w/hqdefault.jpg", "watchUrl": "https://youtu.be/AC3cxFCrg4w", "title": "Performance 8", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/ISSZisJVnLM/hqdefault.jpg", "watchUrl": "https://youtu.be/ISSZisJVnLM", "title": "Performance 9", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/OSqxnBHS_QM/hqdefault.jpg", "watchUrl": "https://youtu.be/OSqxnBHS_QM", "title": "Performance 10", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/KbO-MGdlkAU/hqdefault.jpg", "watchUrl": "https://youtu.be/KbO-MGdlkAU", "title": "Performance 11", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/ibzJqqZ9Veg/hqdefault.jpg", "watchUrl": "https://youtu.be/ibzJqqZ9Veg", "title": "Performance 12", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/Vae2N1D_qTo/hqdefault.jpg", "watchUrl": "https://youtu.be/Vae2N1D_qTo", "title": "Performance 13", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/UwUuW02blVQ/hqdefault.jpg", "watchUrl": "https://youtu.be/UwUuW02blVQ", "title": "Performance 14", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/MJaQp6RNv4Q/hqdefault.jpg", "watchUrl": "https://youtu.be/MJaQp6RNv4Q", "title": "Performance 15", "tag": "Performance" }
+  ],
   "gallery": [
     {
       "image": "../assets/gallery-janapadha-poster-unveil-entrance.jpg",
