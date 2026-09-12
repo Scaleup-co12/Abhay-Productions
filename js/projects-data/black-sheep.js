@@ -7,7 +7,7 @@ window.PROJECT_DATA = {
     "badge": "Project",
     "name": "Black Sheep",
     "tagline": "Beware of Black Sheep — they're everywhere.",
-    "date": "21 July 2026",
+    "date": "27 August 2017",
     "media": { "type": "image", "src": "../assets/poster-black-sheep.jpg" }
   },
   "overview": {

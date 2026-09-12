@@ -7,7 +7,7 @@ window.EVENT_DATA = {
     "badge": "✓ Event Concluded",
     "name": "Enjoy Every Moment – Premiere Event",
     "tagline": "An audio launch and felicitation night celebrating the album “Enjoy Every Moment.”",
-    "date": "28 January 2017",
+    "date": "2 February 2017",
     "location": "",
     "media": { "type": "image", "src": "../assets/enjoy-every-moment-01.jpg" }
   },

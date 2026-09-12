@@ -7,7 +7,7 @@ window.EVENT_DATA = {
     "badge": "✓ Event Concluded",
     "name": "Prayatnam – Movie Premiere Event (Hyderabad & Vizag)",
     "tagline": "The Hyderabad leg of the premiere celebrations for “Prayatnam.”",
-    "date": "3 October 2018",
+    "date": "30 September – 7 October 2018",
     "location": "Hyderabad & Vizag",
     "media": { "type": "image", "src": "../assets/prayatnam-hyd-01.jpg" }
   },

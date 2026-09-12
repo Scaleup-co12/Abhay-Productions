@@ -7,7 +7,7 @@ window.PROJECT_DATA = {
     "badge": "Project",
     "name": "Prayatnam",
     "tagline": "First step to success.",
-    "date": "21 July 2026",
+    "date": "30 September – 7 October 2018",
     "media": { "type": "image", "src": "../assets/prayatnam-still-03.jpg" }
   },
   "overview": {

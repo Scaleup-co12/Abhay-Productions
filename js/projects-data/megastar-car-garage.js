@@ -7,7 +7,7 @@ window.PROJECT_DATA = {
     "badge": "Project",
     "name": "Megastar Car Garage",
     "tagline": "A small-town garage, a big-star entrance.",
-    "date": "21 July 2026",
+    "date": "22 August 2022",
     "media": { "type": "image", "src": "../assets/poster-megastar-car-garage.jpg" }
   },
   "overview": {

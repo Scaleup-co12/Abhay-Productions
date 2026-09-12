@@ -7,7 +7,7 @@ window.PROJECT_DATA = {
     "badge": "Project",
     "name": "Mega Blast",
     "tagline": "More details about this project are on their way — check back soon for the full story.",
-    "date": "21 July 2026",
+    "date": "31 May 2016",
     "media": {
       "placeholder": true
     }
