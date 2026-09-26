@@ -344,14 +344,22 @@
   var openLightbox = window.SiteViewer.openLightbox;
   var openVideoModal = window.SiteViewer.openVideoModal;
 
-  /* ---------- Hero "Watch Highlights" button ---------- */
+  /* ---------- Hero "Watch Highlights" button ----------
+     Same behaviour as clicking the featured video card: a YouTube
+     premiere opens its watch page on YouTube, anything else plays in
+     the video modal. */
   function wireHeroButton() {
     var btn = document.getElementById('heroWatchBtn');
-    if (!btn || !DATA.videos || !DATA.videos.featured || DATA.videos.featured.placeholder) return;
+    var featured = DATA.videos && DATA.videos.featured;
+    if (!btn || !featured || featured.placeholder) return;
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
-      openVideoModal(DATA.videos.featured);
+      if (featured.type === 'youtube-premiere' && featured.watchUrl) {
+        window.open(featured.watchUrl, '_blank', 'noopener,noreferrer');
+      } else {
+        openVideoModal(featured);
+      }
     });
   }
 
