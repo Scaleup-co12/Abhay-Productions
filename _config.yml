@@ -1,0 +1,8 @@
+# GitHub Pages build settings.
+# The site is plain HTML/CSS/JS; this file only keeps repo tooling off the
+# published site. Everything else is published exactly as it is in the repo.
+exclude:
+  - tools/
+  - package.json
+  - package-lock.json
+  - node_modules/
