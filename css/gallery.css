@@ -1,0 +1,149 @@
+/* ============================================================
+   Gallery page — justified collage
+   Extends css/style.css + css/event.css (lightbox chrome).
+
+   Every tile keeps its photo's real aspect ratio: each item grows in
+   proportion to its ratio (--r = width / height) from a base width of
+   --r × --row-h, so a row of mixed portraits, landscapes and panoramas
+   fills the full width without cropping anything. Photos come from
+   js/gallery-data.js, rendered by js/gallery.js.
+   ============================================================ */
+.gallery-page{ padding-top: 72px; }
+
+.gallery-page .heading{ font-size: clamp(34px, 4.4vw, 56px); }
+
+/* ---------- Filters ---------- */
+.gallery-filters{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+.gallery-filter{
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--hairline);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--body-text);
+}
+.gallery-filter:hover{ border-color: var(--gold-1); color: var(--gold-1); }
+.gallery-filter.is-active{
+  background: var(--gold-gradient);
+  border-color: transparent;
+  color: var(--on-gold);
+}
+.gallery-filters__count{
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted-taupe);
+}
+
+/* ---------- Collage ---------- */
+.collage{
+  --row-h: 230px;
+  --gap: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+  margin-top: 32px;
+}
+/* Soaks up the leftover space in the last row so its photos stay at
+   the base row height instead of stretching to fill the width. */
+.collage::after{
+  content: '';
+  flex-grow: 1000000;
+}
+.collage__item{
+  position: relative;
+  flex-grow: var(--r);
+  flex-basis: calc(var(--r) * var(--row-h));
+  aspect-ratio: var(--r);
+  /* Keep a panorama from forcing its row taller than the viewport width */
+  max-width: 100%;
+  display: block;
+  padding: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--charcoal);
+  cursor: zoom-in;
+}
+.collage__item[hidden]{ display: none; }
+.collage__item img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(.15) brightness(.92);
+  transition: transform .8s var(--ease), filter .5s var(--ease);
+}
+.collage__item:hover img,
+.collage__item:focus-visible img{
+  transform: scale(1.05);
+  filter: grayscale(0) brightness(1);
+}
+.collage__item:focus-visible{
+  outline: 2px solid var(--gold-1);
+  outline-offset: 3px;
+}
+.collage__caption{
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 40px 16px 14px;
+  background: linear-gradient(0deg, rgba(var(--ink-black-rgb),.85), rgba(var(--ink-black-rgb),0));
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--bone-white);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity .35s var(--ease), transform .35s var(--ease);
+  pointer-events: none;
+}
+.collage__item:hover .collage__caption,
+.collage__item:focus-visible .collage__caption{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 1100px){
+  .collage{ --row-h: 190px; }
+}
+@media (max-width: 700px){
+  .collage{ --row-h: 96px; --gap: 6px; }
+  .gallery-page{ padding-top: 48px; }
+  .gallery-filters__count{ width: 100%; margin-left: 0; }
+}
+@media (hover: none){
+  .collage__caption{ display: none; }
+}
+
+/* ---------- Lightbox caption ---------- */
+.lightbox__caption{
+  position: absolute;
+  bottom: 56px; left: 50%;
+  transform: translateX(-50%);
+  width: min(720px, 86vw);
+  text-align: center;
+  font-size: 14px;
+  color: var(--body-text);
+}
+.lightbox__caption a,
+.lightbox__caption span{
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--gold-1);
+}
+.lightbox__caption a:hover{ text-decoration: underline; }
+.lightbox--captioned .lightbox__figure,
+.lightbox--captioned .lightbox__figure img{ max-height: 72vh; }
