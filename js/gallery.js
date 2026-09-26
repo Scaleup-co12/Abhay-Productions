@@ -24,7 +24,7 @@
     var ratio = (p.w / p.h).toFixed(4);
     return (
       '<button type="button" class="collage__item reveal" style="--r:' + ratio + '" data-index="' + i + '" data-kind="' + esc(p.kind) + '" aria-label="' + esc(p.alt || p.title) + '">' +
-        '<img src="' + esc(p.src) + '" alt="" width="' + p.w + '" height="' + p.h + '" loading="lazy" decoding="async">' +
+        '<img src="' + esc(p.thumb || p.src) + '" alt="" width="' + p.w + '" height="' + p.h + '" loading="lazy" decoding="async">' +
         '<span class="collage__caption">' + esc(p.title) + '</span>' +
       '</button>'
     );
@@ -118,7 +118,14 @@
   }
   function updateLightbox() {
     var p = visible[lightboxIndex];
-    lightboxImg.src = p.src;
+    /* Show the (already cached) preview at once, then swap in the full-size
+       file when it arrives — unless the viewer has moved on by then. */
+    lightboxImg.src = p.thumb || p.src;
+    if (p.thumb) {
+      var full = new Image();
+      full.onload = function () { if (visible[lightboxIndex] === p) lightboxImg.src = p.src; };
+      full.src = p.src;
+    }
     lightboxImg.alt = p.alt || '';
     var source = p.href
       ? '<a href="' + esc(p.href) + '">' + esc(p.title) + ' &rarr;</a>'
