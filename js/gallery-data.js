@@ -1,7 +1,7 @@
 /* Gallery page data — generated from the gallery arrays in
-   js/events-data/*.js and js/projects-data/*.js. Each photo carries its
+   js/events-data/*.js plus assets/felicitation-*.jpg. Each photo carries its
    real pixel size (w, h) so the collage can lay out rows before any
-   image has loaded. `thumb` is a 640px-tall preview copy used by the
+   image has loaded. `thumb` is a smaller preview copy used by the
    collage; the lightbox opens the full-size `src`. */
 window.GALLERY_DATA = [
   {
@@ -119,6 +119,15 @@ window.GALLERY_DATA = [
     "thumb": "assets/thumbs/felicitation-06.jpg"
   },
   {
+    "kind": "felicitations",
+    "title": "Felicitations",
+    "src": "assets/felicitation-07.jpg",
+    "w": 1600,
+    "h": 981,
+    "alt": "Felicitation moment 7",
+    "thumb": "assets/thumbs/felicitation-07.jpg"
+  },
+  {
     "kind": "events",
     "title": "Janapadha Kalavaibhavam 2026",
     "href": "events/janapadha-kalavaibhavam-2026.html",
@@ -127,15 +136,6 @@ window.GALLERY_DATA = [
     "h": 833,
     "alt": "Press meet announcing Andhra Pradesh Janapadha Kala Vaibhavam 2026",
     "thumb": "assets/thumbs/gallery-janapadha-press-meet-podium.jpg"
-  },
-  {
-    "kind": "felicitations",
-    "title": "Felicitations",
-    "src": "assets/felicitation-07.jpg",
-    "w": 1600,
-    "h": 981,
-    "alt": "Felicitation moment 7",
-    "thumb": "assets/thumbs/felicitation-07.jpg"
   },
   {
     "kind": "events",
@@ -191,8 +191,8 @@ window.GALLERY_DATA = [
     "title": "Sangaseva Puraskaram",
     "href": "events/sangaseva-puraskaram.html",
     "src": "assets/sangaseva-puraskaram-02.jpg",
-    "w": 3872,
-    "h": 2592,
+    "w": 2400,
+    "h": 1607,
     "alt": "Event posters put up around the city",
     "thumb": "assets/thumbs/sangaseva-puraskaram-02.jpg"
   },
@@ -216,16 +216,6 @@ window.GALLERY_DATA = [
   },
   {
     "kind": "events",
-    "title": "Janapadha Kalavaibhavam 2026",
-    "href": "events/janapadha-kalavaibhavam-2026.html",
-    "src": "assets/gallery-janapadha-memento-exchange.jpg",
-    "w": 1593,
-    "h": 1600,
-    "alt": "Guests exchanging mementos at the press meet",
-    "thumb": "assets/thumbs/gallery-janapadha-memento-exchange.jpg"
-  },
-  {
-    "kind": "events",
     "title": "Bangaru Bidda – Stage Play",
     "href": "events/bangaru-bidda-stage-play.html",
     "src": "assets/bangaru-bidda-03.jpg",
@@ -242,6 +232,16 @@ window.GALLERY_DATA = [
     "h": 1066,
     "alt": "Felicitation moment 11",
     "thumb": "assets/thumbs/felicitation-11.jpg"
+  },
+  {
+    "kind": "events",
+    "title": "Janapadha Kalavaibhavam 2026",
+    "href": "events/janapadha-kalavaibhavam-2026.html",
+    "src": "assets/gallery-janapadha-memento-exchange.jpg",
+    "w": 1593,
+    "h": 1600,
+    "alt": "Guests exchanging mementos at the press meet",
+    "thumb": "assets/thumbs/gallery-janapadha-memento-exchange.jpg"
   },
   {
     "kind": "felicitations",
@@ -311,6 +311,15 @@ window.GALLERY_DATA = [
     "thumb": "assets/thumbs/felicitation-14.jpg"
   },
   {
+    "kind": "felicitations",
+    "title": "Felicitations",
+    "src": "assets/felicitation-15.jpg",
+    "w": 1600,
+    "h": 1138,
+    "alt": "Felicitation moment 15",
+    "thumb": "assets/thumbs/felicitation-15.jpg"
+  },
+  {
     "kind": "events",
     "title": "Janapadha Kalavaibhavam 2026",
     "href": "events/janapadha-kalavaibhavam-2026.html",
@@ -319,15 +328,6 @@ window.GALLERY_DATA = [
     "h": 757,
     "alt": "Unveiling the 25 August event poster",
     "thumb": "assets/thumbs/gallery-janapadha-poster-25-august.jpg"
-  },
-  {
-    "kind": "felicitations",
-    "title": "Felicitations",
-    "src": "assets/felicitation-15.jpg",
-    "w": 1600,
-    "h": 1138,
-    "alt": "Felicitation moment 15",
-    "thumb": "assets/thumbs/felicitation-15.jpg"
   },
   {
     "kind": "felicitations",
@@ -375,16 +375,6 @@ window.GALLERY_DATA = [
     "h": 866,
     "alt": "Felicitation moment 18",
     "thumb": "assets/thumbs/felicitation-18.jpg"
-  },
-  {
-    "kind": "events",
-    "title": "Janapadha Kalavaibhavam 2026",
-    "href": "events/janapadha-kalavaibhavam-2026.html",
-    "src": "assets/gallery-janapadha-trophy-presentation.jpg",
-    "w": 1600,
-    "h": 946,
-    "alt": "Presenting the Janapadha Kala Vaibhavam trophy",
-    "thumb": "assets/thumbs/gallery-janapadha-trophy-presentation.jpg"
   },
   {
     "kind": "felicitations",
@@ -435,6 +425,16 @@ window.GALLERY_DATA = [
     "thumb": "assets/thumbs/felicitation-20.jpg"
   },
   {
+    "kind": "events",
+    "title": "Janapadha Kalavaibhavam 2026",
+    "href": "events/janapadha-kalavaibhavam-2026.html",
+    "src": "assets/gallery-janapadha-trophy-presentation.jpg",
+    "w": 1600,
+    "h": 946,
+    "alt": "Presenting the Janapadha Kala Vaibhavam trophy",
+    "thumb": "assets/thumbs/gallery-janapadha-trophy-presentation.jpg"
+  },
+  {
     "kind": "felicitations",
     "title": "Felicitations",
     "src": "assets/felicitation-21.jpg",
@@ -461,16 +461,6 @@ window.GALLERY_DATA = [
     "h": 1547,
     "alt": "Chief guest welcomed with flowers",
     "thumb": "assets/thumbs/prayatnam-hyd-05.jpg"
-  },
-  {
-    "kind": "events",
-    "title": "Janapadha Kalavaibhavam 2026",
-    "href": "events/janapadha-kalavaibhavam-2026.html",
-    "src": "assets/gallery-janapadha-trophy-seated.jpg",
-    "w": 1600,
-    "h": 1032,
-    "alt": "Dignitaries with the event trophy",
-    "thumb": "assets/thumbs/gallery-janapadha-trophy-seated.jpg"
   },
   {
     "kind": "felicitations",
@@ -509,6 +499,16 @@ window.GALLERY_DATA = [
     "h": 1200,
     "alt": "Anchors and guests on stage",
     "thumb": "assets/thumbs/enjoy-every-moment-06.jpg"
+  },
+  {
+    "kind": "events",
+    "title": "Janapadha Kalavaibhavam 2026",
+    "href": "events/janapadha-kalavaibhavam-2026.html",
+    "src": "assets/gallery-janapadha-trophy-seated.jpg",
+    "w": 1600,
+    "h": 1032,
+    "alt": "Dignitaries with the event trophy",
+    "thumb": "assets/thumbs/gallery-janapadha-trophy-seated.jpg"
   },
   {
     "kind": "events",
@@ -560,16 +560,6 @@ window.GALLERY_DATA = [
   },
   {
     "kind": "events",
-    "title": "Janapadha Kalavaibhavam 2026",
-    "href": "events/janapadha-kalavaibhavam-2026.html",
-    "src": "assets/gallery-janapadha-stage-trophy-group.jpg",
-    "w": 1600,
-    "h": 1067,
-    "alt": "Guests on stage with the Janapadha Kala Vaibhavam trophy",
-    "thumb": "assets/thumbs/gallery-janapadha-stage-trophy-group.jpg"
-  },
-  {
-    "kind": "events",
     "title": "Prayatnam – Movie Premiere Event (Hyderabad & Vizag)",
     "href": "events/prayatnam-movie-premiere-event-hyderabad-and-vizag.html",
     "src": "assets/prayatnam-hyd-06.jpg",
@@ -595,6 +585,16 @@ window.GALLERY_DATA = [
     "h": 1600,
     "alt": "Felicitation moment 28",
     "thumb": "assets/thumbs/felicitation-28.jpg"
+  },
+  {
+    "kind": "events",
+    "title": "Janapadha Kalavaibhavam 2026",
+    "href": "events/janapadha-kalavaibhavam-2026.html",
+    "src": "assets/gallery-janapadha-stage-trophy-group.jpg",
+    "w": 1600,
+    "h": 1067,
+    "alt": "Guests on stage with the Janapadha Kala Vaibhavam trophy",
+    "thumb": "assets/thumbs/gallery-janapadha-stage-trophy-group.jpg"
   },
   {
     "kind": "felicitations",
@@ -630,8 +630,8 @@ window.GALLERY_DATA = [
     "title": "Sangaseva Puraskaram",
     "href": "events/sangaseva-puraskaram.html",
     "src": "assets/sangaseva-puraskaram-07.jpg",
-    "w": 3872,
-    "h": 2592,
+    "w": 2400,
+    "h": 1607,
     "alt": "On stage at the felicitation ceremony",
     "thumb": "assets/thumbs/sangaseva-puraskaram-07.jpg"
   },
@@ -643,16 +643,6 @@ window.GALLERY_DATA = [
     "h": 1314,
     "alt": "Felicitation moment 30",
     "thumb": "assets/thumbs/felicitation-30.jpg"
-  },
-  {
-    "kind": "events",
-    "title": "Janapadha Kalavaibhavam 2026",
-    "href": "events/janapadha-kalavaibhavam-2026.html",
-    "src": "assets/gallery-janapadha-trophy-closeup.jpg",
-    "w": 1600,
-    "h": 2399,
-    "alt": "Close-up of the Janapadha Kala Vaibhavam trophy",
-    "thumb": "assets/thumbs/gallery-janapadha-trophy-closeup.jpg"
   },
   {
     "kind": "felicitations",
@@ -702,6 +692,16 @@ window.GALLERY_DATA = [
     "thumb": "assets/thumbs/felicitation-33.jpg"
   },
   {
+    "kind": "events",
+    "title": "Janapadha Kalavaibhavam 2026",
+    "href": "events/janapadha-kalavaibhavam-2026.html",
+    "src": "assets/gallery-janapadha-trophy-closeup.jpg",
+    "w": 1600,
+    "h": 2399,
+    "alt": "Close-up of the Janapadha Kala Vaibhavam trophy",
+    "thumb": "assets/thumbs/gallery-janapadha-trophy-closeup.jpg"
+  },
+  {
     "kind": "felicitations",
     "title": "Felicitations",
     "src": "assets/felicitation-34.jpg",
@@ -709,16 +709,6 @@ window.GALLERY_DATA = [
     "h": 1600,
     "alt": "Felicitation moment 34",
     "thumb": "assets/thumbs/felicitation-34.jpg"
-  },
-  {
-    "kind": "events",
-    "title": "Janapadha Kalavaibhavam 2026",
-    "href": "events/janapadha-kalavaibhavam-2026.html",
-    "src": "assets/gallery-janapadha-album-release.jpg",
-    "w": 1600,
-    "h": 1067,
-    "alt": "Album release on stage",
-    "thumb": "assets/thumbs/gallery-janapadha-album-release.jpg"
   },
   {
     "kind": "felicitations",
@@ -788,6 +778,16 @@ window.GALLERY_DATA = [
     "thumb": "assets/thumbs/felicitation-37.jpg"
   },
   {
+    "kind": "events",
+    "title": "Janapadha Kalavaibhavam 2026",
+    "href": "events/janapadha-kalavaibhavam-2026.html",
+    "src": "assets/gallery-janapadha-album-release.jpg",
+    "w": 1600,
+    "h": 1067,
+    "alt": "Album release on stage",
+    "thumb": "assets/thumbs/gallery-janapadha-album-release.jpg"
+  },
+  {
     "kind": "felicitations",
     "title": "Felicitations",
     "src": "assets/felicitation-38.jpg",
@@ -805,16 +805,6 @@ window.GALLERY_DATA = [
     "h": 1200,
     "alt": "The cast performing on stage",
     "thumb": "assets/thumbs/bangaru-bidda-07.jpg"
-  },
-  {
-    "kind": "events",
-    "title": "Janapadha Kalavaibhavam 2026",
-    "href": "events/janapadha-kalavaibhavam-2026.html",
-    "src": "assets/gallery-janapadha-poster-reveal-stage.jpg",
-    "w": 1600,
-    "h": 936,
-    "alt": "Poster reveal on stage",
-    "thumb": "assets/thumbs/gallery-janapadha-poster-reveal-stage.jpg"
   },
   {
     "kind": "felicitations",
@@ -894,6 +884,16 @@ window.GALLERY_DATA = [
     "thumb": "assets/thumbs/prayatnam-hyd-09.jpg"
   },
   {
+    "kind": "events",
+    "title": "Janapadha Kalavaibhavam 2026",
+    "href": "events/janapadha-kalavaibhavam-2026.html",
+    "src": "assets/gallery-janapadha-poster-reveal-stage.jpg",
+    "w": 1600,
+    "h": 936,
+    "alt": "Poster reveal on stage",
+    "thumb": "assets/thumbs/gallery-janapadha-poster-reveal-stage.jpg"
+  },
+  {
     "kind": "felicitations",
     "title": "Felicitations",
     "src": "assets/felicitation-42.jpg",
@@ -901,16 +901,6 @@ window.GALLERY_DATA = [
     "h": 1195,
     "alt": "Felicitation moment 42",
     "thumb": "assets/thumbs/felicitation-42.jpg"
-  },
-  {
-    "kind": "events",
-    "title": "Janapadha Kalavaibhavam 2026",
-    "href": "events/janapadha-kalavaibhavam-2026.html",
-    "src": "assets/gallery-janapadha-poster-reveal-stage-2.jpg",
-    "w": 1600,
-    "h": 936,
-    "alt": "Poster reveal on stage",
-    "thumb": "assets/thumbs/gallery-janapadha-poster-reveal-stage-2.jpg"
   },
   {
     "kind": "felicitations",

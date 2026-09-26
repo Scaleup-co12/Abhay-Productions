@@ -124,10 +124,6 @@ window.EVENT_DATA = {
       "alt": "Poster reveal on stage"
     },
     {
-      "image": "../assets/gallery-janapadha-poster-reveal-stage-2.jpg",
-      "alt": "Poster reveal on stage"
-    },
-    {
       "image": "../assets/gallery-janapadha-group-photo.jpg",
       "alt": "Full cast and crew group photo on stage"
     }

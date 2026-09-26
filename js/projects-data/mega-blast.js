@@ -8,7 +8,7 @@ window.PROJECT_DATA = {
     "name": "Mega Blast",
     "tagline": "More details about this project are on their way — check back soon for the full story.",
     "date": "31 May 2016",
-    "media": { "type": "image", "src": "../assets/poster-mega-blast.png" }
+    "media": { "type": "image", "src": "../assets/poster-mega-blast.jpg" }
   },
   "overview": {
     "heading": "About the Project",

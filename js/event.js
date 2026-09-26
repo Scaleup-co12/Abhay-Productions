@@ -49,6 +49,18 @@
     });
   }
 
+  /* Grid tiles load the smaller preview in assets/thumbs/ (same file name);
+     the lightbox still opens the full-size image. */
+  function thumbOf(src) {
+    return String(src).replace(/(^|\/)assets\/(?!thumbs\/)/, '$1assets/thumbs/');
+  }
+  function useFullOnError(img) {
+    img.addEventListener('error', function onError() {
+      img.removeEventListener('error', onError);
+      img.src = img.getAttribute('data-full');
+    });
+  }
+
   /* ---------- 1. Hero ---------- */
   function renderHero() {
     var h = DATA.hero;
@@ -237,7 +249,7 @@
       }
       return (
         '<figure class="masonry-gallery__item reveal" data-index="' + i + '">' +
-          '<img src="' + esc(item.image) + '" alt="' + esc(item.alt) + '" loading="lazy">' +
+          '<img src="' + esc(thumbOf(item.image)) + '" data-full="' + esc(item.image) + '" alt="' + esc(item.alt) + '" loading="lazy" decoding="async">' +
           '<span class="masonry-gallery__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path d="M15.5 15.5L21 21M17 10.5A6.5 6.5 0 1 1 4 10.5a6.5 6.5 0 0 1 13 0z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>' +
         '</figure>'
       );
@@ -245,6 +257,7 @@
 
     Array.prototype.slice.call(grid.querySelectorAll('.masonry-gallery__item')).forEach(function (fig) {
       if (fig.classList.contains('masonry-gallery__item--placeholder')) return;
+      useFullOnError(fig.querySelector('img'));
       fig.addEventListener('click', function () {
         openLightbox(DATA.gallery, parseInt(fig.getAttribute('data-index'), 10));
       });

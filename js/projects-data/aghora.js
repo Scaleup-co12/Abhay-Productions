@@ -8,7 +8,7 @@ window.PROJECT_DATA = {
     "name": "Aghora",
     "tagline": "More details about this project are on their way — check back soon for the full story.",
     "date": "21 July 2026",
-    "media": { "type": "image", "src": "../assets/poster-aghora.png" }
+    "media": { "type": "image", "src": "../assets/poster-aghora.jpg" }
   },
   "overview": {
     "heading": "About the Project",
@@ -69,7 +69,7 @@ window.PROJECT_DATA = {
     ]
   },
   "closing": {
-    "media": { "type": "image", "src": "../assets/poster-aghora.png" },
+    "media": { "type": "image", "src": "../assets/poster-aghora.jpg" },
     "statement": "Thank you for following <span class=\"text-gold\">Aghora</span>.",
     "ctaText": "Explore More Projects",
     "ctaHref": "../index.html#projects"
