@@ -11,34 +11,34 @@ window.EVENT_DATA = {
     "location": "Sri Kanti Theatre",
     "media": {
       "type": "image",
-      "src": "../assets/poster-janapadha-full.jpg"
+      "src": "../assets/images/posters/janapadha-full.jpg"
     }
   },
   "highlights": [
     {
       "type": "instagram",
-      "image": "../assets/poster-janapadha-shoot-highlights.jpg",
+      "image": "../assets/images/posters/janapadha-shoot-highlights.jpg",
       "watchUrl": "https://www.instagram.com/reel/DbGO0LTyKTs/",
       "title": "Shoot Highlights",
       "tag": "Instagram Reel"
     },
     {
       "type": "instagram",
-      "image": "../assets/poster-janapadha-making-of.jpg",
+      "image": "../assets/images/posters/janapadha-making-of.jpg",
       "watchUrl": "https://www.instagram.com/reel/DbI4tZWBAbO/",
       "title": "Making of the Shoot",
       "tag": "Instagram Reel"
     },
     {
       "type": "instagram",
-      "image": "../assets/poster-janapadha-poster-launch.jpg",
+      "image": "../assets/images/posters/janapadha-poster-launch.jpg",
       "watchUrl": "https://www.instagram.com/reel/DcGyKMNPl0J/",
       "title": "Poster Launch by the Minister",
       "tag": "Instagram Reel"
     },
     {
       "type": "instagram",
-      "image": "../assets/poster-janapadha-premiere-highlights.jpg",
+      "image": "../assets/images/posters/janapadha-premiere-highlights.jpg",
       "watchUrl": "https://www.instagram.com/reel/DcYgsM1S6mV/",
       "title": "Premiere Highlights",
       "tag": "Instagram Reel"
@@ -84,47 +84,47 @@ window.EVENT_DATA = {
   ],
   "gallery": [
     {
-      "image": "../assets/gallery-janapadha-poster-unveil-entrance.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/poster-unveil-entrance.jpg",
       "alt": "Dignitaries unveiling the Janapadha Kala Vaibhavam poster at the venue entrance"
     },
     {
-      "image": "../assets/gallery-janapadha-press-meet-podium.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/press-meet-podium.jpg",
       "alt": "Press meet announcing Andhra Pradesh Janapadha Kala Vaibhavam 2026"
     },
     {
-      "image": "../assets/gallery-janapadha-memento-exchange.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/memento-exchange.jpg",
       "alt": "Guests exchanging mementos at the press meet"
     },
     {
-      "image": "../assets/gallery-janapadha-poster-25-august.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/poster-25-august.jpg",
       "alt": "Unveiling the 25 August event poster"
     },
     {
-      "image": "../assets/gallery-janapadha-trophy-presentation.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/trophy-presentation.jpg",
       "alt": "Presenting the Janapadha Kala Vaibhavam trophy"
     },
     {
-      "image": "../assets/gallery-janapadha-trophy-seated.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/trophy-seated.jpg",
       "alt": "Dignitaries with the event trophy"
     },
     {
-      "image": "../assets/gallery-janapadha-stage-trophy-group.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/stage-trophy-group.jpg",
       "alt": "Guests on stage with the Janapadha Kala Vaibhavam trophy"
     },
     {
-      "image": "../assets/gallery-janapadha-trophy-closeup.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/trophy-closeup.jpg",
       "alt": "Close-up of the Janapadha Kala Vaibhavam trophy"
     },
     {
-      "image": "../assets/gallery-janapadha-album-release.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/album-release.jpg",
       "alt": "Album release on stage"
     },
     {
-      "image": "../assets/gallery-janapadha-poster-reveal-stage.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/poster-reveal-stage.jpg",
       "alt": "Poster reveal on stage"
     },
     {
-      "image": "../assets/gallery-janapadha-group-photo.jpg",
+      "image": "../assets/images/events/janapadha-kalavaibhavam-2026/group-photo.jpg",
       "alt": "Full cast and crew group photo on stage"
     }
   ],
@@ -151,23 +151,23 @@ window.EVENT_DATA = {
     }
   ],
   "sponsors": [
-    { "name": "SRKP Group", "image": "../assets/sponsor-srkp-group.png" },
-    { "name": "VMRDA", "image": "../assets/sponsor-vmrda.png" },
-    { "name": "Sri Kanti Theatre", "image": "../assets/sponsor-sri-kanti-theatre.png" },
-    { "name": "Good Print", "image": "../assets/sponsor-good-print.png" },
-    { "name": "Satya Entertainers", "image": "../assets/sponsor-satya-entertainers.png" },
-    { "name": "Jaya Kala Niketan", "image": "../assets/sponsor-jaya-kala-niketan.png" },
-    { "name": "Dhaliraju Super Market", "image": "../assets/sponsor-dhaliraju-supermarket.png" },
-    { "name": "Lokesh's Sarada Swara Sangamam", "image": "../assets/sponsor-sarada-swara-sangamam.png" },
-    { "name": "GVR Ramachandra Rao", "image": "../assets/sponsor-gvr-ramachandra-rao.png" },
-    { "name": "ScaleUp.co", "image": "../assets/sponsor-scaleup.png" },
-    { "name": "Dhanunjay Awards & Gifts", "image": "../assets/sponsor-dhanunjay-awards-gifts.png" },
-    { "name": "Raju Studio", "image": "../assets/sponsor-raju-studio.png" }
+    { "name": "SRKP Group", "image": "../assets/images/sponsors/srkp-group.png" },
+    { "name": "VMRDA", "image": "../assets/images/sponsors/vmrda.png" },
+    { "name": "Sri Kanti Theatre", "image": "../assets/images/sponsors/sri-kanti-theatre.png" },
+    { "name": "Good Print", "image": "../assets/images/sponsors/good-print.png" },
+    { "name": "Satya Entertainers", "image": "../assets/images/sponsors/satya-entertainers.png" },
+    { "name": "Jaya Kala Niketan", "image": "../assets/images/sponsors/jaya-kala-niketan.png" },
+    { "name": "Dhaliraju Super Market", "image": "../assets/images/sponsors/dhaliraju-supermarket.png" },
+    { "name": "Lokesh's Sarada Swara Sangamam", "image": "../assets/images/sponsors/sarada-swara-sangamam.png" },
+    { "name": "GVR Ramachandra Rao", "image": "../assets/images/sponsors/gvr-ramachandra-rao.png" },
+    { "name": "ScaleUp.co", "image": "../assets/images/sponsors/scaleup.png" },
+    { "name": "Dhanunjay Awards & Gifts", "image": "../assets/images/sponsors/dhanunjay-awards-gifts.png" },
+    { "name": "Raju Studio", "image": "../assets/images/sponsors/raju-studio.png" }
   ],
   "closing": {
     "media": {
       "type": "image",
-      "src": "../assets/poster-janapadha-full.jpg"
+      "src": "../assets/images/posters/janapadha-full.jpg"
     },
     "statement": "Thank you for being part of <span class=\"text-gold\">Janapadha Kalavaibhavam 2026</span>.",
     "ctaText": "Explore More Events",

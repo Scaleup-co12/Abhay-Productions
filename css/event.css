@@ -7,9 +7,9 @@
    .media-placeholder, lightbox / video-modal).
 
    Content is data-driven: each page under /events/ loads its own
-   js/events-data/<slug>.js (window.EVENT_DATA), and js/event.js
+   js/data/events/<slug>.js (window.EVENT_DATA), and js/event.js
    renders it into the containers below. To publish a new event,
-   duplicate an existing events/<slug>.html + js/events-data/<slug>.js
+   duplicate an existing events/<slug>.html + js/data/events/<slug>.js
    pair and edit the data file.
    ============================================================ */
 

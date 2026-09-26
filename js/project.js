@@ -1,6 +1,6 @@
 /* ============================================================
    Project page renderer — reads window.PROJECT_DATA (one file
-   per project under js/projects-data/) and populates the section
+   per project under js/data/projects/) and populates the section
    containers in the project page template, then wires up the
    lightbox and video modal. Runs inline, before js/main.js, so the
    reveal / stat-counter observers in main.js see the final markup.
@@ -32,7 +32,7 @@
   /* Grid tiles load the smaller preview in assets/thumbs/ (same file name);
      the lightbox still opens the full-size image. */
   function thumbOf(src) {
-    return String(src).replace(/(^|\/)assets\/(?!thumbs\/)/, '$1assets/thumbs/');
+    return String(src).replace(/(^|\/)assets\/images\/(?!thumbs\/)/, '$1assets/images/thumbs/');
   }
   function useFullOnError(img) {
     img.addEventListener('error', function onError() {

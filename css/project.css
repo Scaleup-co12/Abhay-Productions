@@ -8,7 +8,7 @@
    sections, which are deliberately different from the event
    template's hero/highlights/stats/sponsors structure.
 
-   Content is data-driven: js/projects-data/<slug>.js supplies the
+   Content is data-driven: js/data/projects/<slug>.js supplies the
    values, js/project.js renders them into the containers below.
    ============================================================ */
 

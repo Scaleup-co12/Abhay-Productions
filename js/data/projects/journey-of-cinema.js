@@ -8,16 +8,16 @@ window.PROJECT_DATA = {
     "name": "Journey of Cinema",
     "tagline": "The evolution of cinema, from 1895 to 2020 — told across 13 episodes.",
     "date": "19 December 2020",
-    "media": { "type": "image", "src": "../assets/journey-of-cinema-poster.jpg" }
+    "media": { "type": "image", "src": "../assets/images/posters/journey-of-cinema.jpg" }
   },
   "overview": {
     "heading": "About the Project",
     "text": "Journey of Cinema is a documentary series from Abhay Productions charting the evolution of the medium from its birth in 1895 through to 2020. Told in an episode format, each part looks at a different chapter of that history — the people, the technology, and the moments that shaped cinema as we know it today."
   },
   "gallery": [
-    { "image": "../assets/journey-of-cinema-01.jpg", "alt": "On-stage moment from the Journey of Cinema production" },
-    { "image": "../assets/journey-of-cinema-02.jpg", "alt": "Team posing with the Cinema History Vizag banner" },
-    { "image": "../assets/journey-of-cinema-03.jpg", "alt": "Interview setup with the Cinema History banner backdrop" }
+    { "image": "../assets/images/events/journey-of-cinema-premiere-event/photo-01.jpg", "alt": "On-stage moment from the Journey of Cinema production" },
+    { "image": "../assets/images/events/journey-of-cinema-premiere-event/photo-02.jpg", "alt": "Team posing with the Cinema History Vizag banner" },
+    { "image": "../assets/images/events/journey-of-cinema-premiere-event/photo-03.jpg", "alt": "Interview setup with the Cinema History banner backdrop" }
   ],
   "videos": {
     "featured": {
@@ -42,7 +42,7 @@ window.PROJECT_DATA = {
     ]
   },
   "closing": {
-    "media": { "type": "image", "src": "../assets/journey-of-cinema-poster.jpg" },
+    "media": { "type": "image", "src": "../assets/images/posters/journey-of-cinema.jpg" },
     "statement": "Thank you for following <span class=\"text-gold\">Journey of Cinema</span>.",
     "ctaText": "Explore More Projects",
     "ctaHref": "../index.html#projects"

@@ -1,6 +1,6 @@
 /* ============================================================
    Gallery page renderer
-   Reads window.GALLERY_DATA (js/gallery-data.js), renders the
+   Reads window.GALLERY_DATA (js/data/gallery.js), renders the
    justified collage, wires the Events / Film Making filters and the
    lightbox. Runs before js/main.js so the rendered tiles pick up the
    shared scroll-reveal.

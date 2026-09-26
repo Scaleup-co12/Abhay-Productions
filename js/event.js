@@ -1,6 +1,6 @@
 /* ============================================================
    Event page renderer — shared by every page under /events/. Each
-   page loads its own js/events-data/<slug>.js (setting
+   page loads its own js/data/events/<slug>.js (setting
    window.EVENT_DATA) before this script, which then populates the
    section containers and wires up the lightbox and video modal.
    Runs inline (no DOMContentLoaded wrapper needed: this script tag
@@ -52,7 +52,7 @@
   /* Grid tiles load the smaller preview in assets/thumbs/ (same file name);
      the lightbox still opens the full-size image. */
   function thumbOf(src) {
-    return String(src).replace(/(^|\/)assets\/(?!thumbs\/)/, '$1assets/thumbs/');
+    return String(src).replace(/(^|\/)assets\/images\/(?!thumbs\/)/, '$1assets/images/thumbs/');
   }
   function useFullOnError(img) {
     img.addEventListener('error', function onError() {

@@ -6,7 +6,7 @@
    proportion to its ratio (--r = width / height) from a base width of
    --r × --row-h, so a row of mixed portraits, landscapes and panoramas
    fills the full width without cropping anything. Photos come from
-   js/gallery-data.js, rendered by js/gallery.js.
+   js/data/gallery.js, rendered by js/gallery.js.
    ============================================================ */
 .gallery-page{ padding-top: 72px; }
 
