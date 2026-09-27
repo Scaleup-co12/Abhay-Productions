@@ -93,9 +93,9 @@ window.EVENT_DATA = {
     { "poster": "https://img.youtube.com/vi/9fIM_h4_ljI/hqdefault.jpg", "watchUrl": "https://youtu.be/9fIM_h4_ljI", "title": "Theppeta Gullu", "tag": "Performance" },
     { "poster": "https://img.youtube.com/vi/6Gyod1b0o_w/hqdefault.jpg", "watchUrl": "https://youtu.be/6Gyod1b0o_w", "title": "Janapada Dance", "tag": "Performance" },
     { "poster": "https://img.youtube.com/vi/CeAxmkMKNxc/hqdefault.jpg", "watchUrl": "https://youtu.be/CeAxmkMKNxc", "title": "Kolatam", "tag": "Performance" },
-    { "poster": "https://img.youtube.com/vi/df3vEweLroM/hqdefault.jpg", "watchUrl": "https://youtu.be/df3vEweLroM", "title": "Bhakti Geethalu", "tag": "Performance" },
-    { "poster": "https://img.youtube.com/vi/fipTjF8yCwk/hqdefault.jpg", "watchUrl": "https://youtu.be/fipTjF8yCwk", "title": "Bhakti Geethalu", "tag": "Performance" },
-    { "poster": "https://img.youtube.com/vi/TtlkZYb6r-s/hqdefault.jpg", "watchUrl": "https://youtu.be/TtlkZYb6r-s", "title": "Bhakti Geethalu", "tag": "Performance" }
+    { "poster": "https://img.youtube.com/vi/df3vEweLroM/hqdefault.jpg", "watchUrl": "https://youtu.be/df3vEweLroM", "title": "Bhakti Geethalu 1", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/fipTjF8yCwk/hqdefault.jpg", "watchUrl": "https://youtu.be/fipTjF8yCwk", "title": "Bhakti Geethalu 2", "tag": "Performance" },
+    { "poster": "https://img.youtube.com/vi/TtlkZYb6r-s/hqdefault.jpg", "watchUrl": "https://youtu.be/TtlkZYb6r-s", "title": "Bhakti Geethalu 3", "tag": "Performance" }
   ],
   "gallery": [
     {
