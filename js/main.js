@@ -29,8 +29,6 @@
         controls: 0,
         disablekb: 1,
         rel: 0,
-        showinfo: 0,
-        modestbranding: 1,
         playsinline: 1,
         iv_load_policy: 3,
         fs: 0
@@ -39,7 +37,6 @@
         onReady: function (e) {
           e.target.mute();
           e.target.playVideo();
-          e.target.setPlaybackQuality('hd1080');
         },
         onStateChange: function (e) {
           if (e.data === YT.PlayerState.ENDED) {
